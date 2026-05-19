@@ -1,0 +1,40 @@
+# ── Secrets & local config ─────────────────────────────────────────
+.env
+.env.*
+!.env.example
+data_pipeline/.env
+data_pipeline/.env.*
+!data_pipeline/.env.example
+# real organic config (has API keys); the template ships as organic_config.example.json
+data_pipeline/organic_config.json
+
+# ── Python cruft ───────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+
+# ── Pipeline debug artefacts ───────────────────────────────────────
+data_pipeline/_tiktok_debug.html
+data_pipeline/fetch.log
+
+# ── macOS / OS noise ───────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+
+# ── Editor / IDE ───────────────────────────────────────────────────
+.idea/
+.vscode/
+.cursor/
+
+# ── Old dashboard versions (keep only v5 in the repo) ──────────────
+Samla_Digital_Dashboard.html
+Samla_Digital_Dashboard_v2.html
+Samla_Analytics_v3.html
+Samla_Dashboard_v4.html
+
+# ── Stale prototype connector (superseded by data_pipeline/) ───────
+samla_live_data.js

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Samla Digital — Live Data Integration Plan</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:'#00E676'}}}}</script>
+<style>
+body{background:#09090b;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+.card{background:#111113;border:1px solid #27272a;border-radius:12px;padding:18px 20px;transition:border-color .15s}
+.card:hover{border-color:#3f3f46}
+.banner{background:linear-gradient(135deg,rgba(0,230,118,.07),rgba(0,230,118,.02));border:1px solid rgba(0,230,118,.25)}
+.banner-purple{background:linear-gradient(135deg,rgba(139,92,246,.08),rgba(139,92,246,.02));border:1px solid rgba(139,92,246,.25)}
+.banner-amber{background:linear-gradient(135deg,rgba(245,158,11,.07),rgba(245,158,11,.02));border:1px solid rgba(245,158,11,.25)}
+.badge{font-size:10px;padding:3px 9px;border-radius:10px;font-weight:600;letter-spacing:.02em}
+.b-ok{background:rgba(0,230,118,.1);color:#00E676;border:1px solid rgba(0,230,118,.25)}
+.b-free{background:rgba(34,197,94,.08);color:#4ade80;border:1px solid rgba(34,197,94,.2)}
+.b-time{background:rgba(255,255,255,.04);color:#a1a1aa;border:1px solid rgba(255,255,255,.06)}
+.b-warn{background:rgba(245,158,11,.1);color:#fbbf24;border:1px solid rgba(245,158,11,.25)}
+.b-block{background:rgba(239,68,68,.08);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.b-info{background:rgba(139,92,246,.1);color:#a78bfa;border:1px solid rgba(139,92,246,.25)}
+.b-blue{background:rgba(59,130,246,.1);color:#60a5fa;border:1px solid rgba(59,130,246,.25)}
+.icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;letter-spacing:-.02em}
+.i-st{background:#0e7490;color:#fff}
+.i-fb{background:#1d4ed8;color:#fff}
+.i-ig{background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af);color:#fff}
+.i-tt{background:#000;color:#fff;border:1px solid #27272a}
+.i-yt{background:#dc2626;color:#fff}
+.i-ga{background:#f59e0b;color:#000}
+.i-go{background:#fff;color:#000}
+.i-li{background:#0a66c2;color:#fff}
+.i-x{background:#000;color:#fff;border:1px solid #27272a}
+.i-dc{background:#5865f2;color:#fff}
+.step{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;color:#d4d4d8;line-height:1.5;margin-top:6px}
+.step-n{width:18px;height:18px;border-radius:9px;background:rgba(0,230,118,.1);color:#00E676;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;border:1px solid rgba(0,230,118,.25)}
+code{background:#0a0a0b;border:1px solid #27272a;padding:1px 6px;border-radius:5px;font-size:11px;color:#e4e4e7;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.pill{font-size:9.5px;color:#71717a;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+a{color:#60a5fa}a:hover{color:#93c5fd}
+.divider{border-top:1px solid #27272a;margin:14px 0}
+.outcome{font-size:11.5px;color:#a1a1aa;margin-top:10px;padding-top:10px;border-top:1px dashed #27272a;line-height:1.55}
+.section-h{font-size:10.5px;color:#52525b;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin:30px 0 12px;padding-bottom:8px;border-bottom:1px solid #18181b}
+::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-track{background:#0a0a0b}::-webkit-scrollbar-thumb{background:#27272a;border-radius:3px}
+.check{accent-color:#00E676}
+</style>
+</head>
+<body class="text-zinc-100 min-h-screen">
+<div class="max-w-5xl mx-auto px-6 py-10">
+
+<!-- HEADER -->
+<div class="flex items-center justify-between mb-8">
+  <div class="flex items-center gap-3">
+    <div class="w-9 h-9 rounded-lg bg-brand flex items-center justify-center">
+      <svg width="14" height="14" viewBox="0 0 12 12"><polygon points="6,1 11,10 1,10" fill="#000"/></svg>
+    </div>
+    <div>
+      <div class="text-[18px] font-bold text-brand tracking-tight">SAMLA</div>
+      <div class="text-[10px] text-zinc-500 uppercase tracking-widest">Live Data Integration Plan</div>
+    </div>
+  </div>
+  <div class="text-[11px] text-zinc-500">Updated May 4, 2026</div>
+</div>
+
+<!-- INTRO BANNER -->
+<div class="banner rounded-xl px-5 py-4 mb-6">
+  <div class="flex items-start gap-3">
+    <div class="text-brand text-[18px] mt-0.5">⚡</div>
+    <div>
+      <div class="text-[14px] font-semibold text-brand mb-1">All platforms use free, native APIs</div>
+      <div class="text-[12.5px] text-zinc-300 leading-relaxed">
+        No third-party service or paid wrapper is required. The dashboard already implements the live-fetch layer for the easy 5 (Meta, TikTok, YouTube, Twitter, Discord, Steam) plus a Looker Studio iframe for GA4. Google Ads and LinkedIn Ads need a server-side fetcher (already scaffolded in <code>data_pipeline/fetch_ads.py</code>) because their APIs block browser-side requests.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====================================================================== -->
+<!-- GROUP 1: ZERO-CONFIG -->
+<!-- ====================================================================== -->
+<div class="section-h">Group 1 — Zero config (no key needed)</div>
+
+<div class="card mb-3">
+  <div class="flex items-start justify-between gap-3 mb-2">
+    <div class="flex items-center gap-3">
+      <div class="icon i-st">ST</div>
+      <div>
+        <div class="text-[15px] font-semibold">Steam <span class="text-zinc-500 text-[12px] font-normal">· App 3988870</span></div>
+        <div class="pill mt-0.5">Steamworks Web API</div>
+      </div>
+    </div>
+    <div class="flex flex-wrap gap-1.5 justify-end">
+      <span class="badge b-ok">Already working</span>
+      <span class="badge b-free">No key needed</span>
+    </div>
+  </div>
+  <div class="outcome">Public Steam Store API is CORS-friendly. Endpoint: <code>store.steampowered.com/api/appdetails?appids=3988870</code>. Dashboard fetches automatically on every load — wishlist, page visits, release status.</div>
+</div>
+
+<!-- ====================================================================== -->
+<!-- GROUP 2: BROWSER-SIDE -->
+<!-- ====================================================================== -->
+<div class="section-h">Group 2 — Browser-side (paste a token in Settings)</div>
+
+<!-- META -->
+<div class="card mb-3">
+  <div class="flex items-start justify-between gap-3 mb-3">
+    <div class="flex items-center gap-3">
+      <div class="icon i-fb">FB</div>
+      <div>
+        <div class="text-[15px] font-semibold">Meta Ads + Instagram</div>
+        <div class="pill mt-0.5">Meta Business API v21</div>
+      </div>
+    </div>
+    <div class="flex flex-wrap gap-1.5 justify-end">
+      <span class="badge b-free">Free forever</span>
+      <span class="badge b-time">~10 min setup</span>
+    </div>
+  </div>
+  <div class="step"><div class="step-n">1</div><div>Go to <a href="https://developers.facebook.com" target="_blank">developers.facebook.com</a> → <b>My Apps</b> → <b>Create App</b> → choose <b>Business</b> type</div></div>
+  <div class="step"><div class="step-n">2</div><div>Add products: <b>Marketing API</b> + <b>Instagram Graph API</b></div></div>
+  <div class="step"><div class="step-n">3</div><div><b>Tools</b> → <b>Graph API Explorer</b> → Generate User Access Token → select <code>ads_read</code>, <code>business_management</code>, <code>instagram_basic</code> → <b>Get Long-Lived Token</b> (60 days, auto-refreshable)</div></div>
+  <div class="step"><div class="step-n">4</div><div>Your <b>Ad Account ID</b> is in Ads Manager top-left, format <code>act_XXXXXXXXX</code></div></div>
+  <div class="outcome"><b>Fetches:</b> ad spend, impressions, clicks, CPC, leads, reach, frequency · daily/weekly/monthly · plus Instagram follower count, post insights, story views, organic reach.</div>
+</div>
+
+<!-- TIKTOK -->
+<div class="card mb-3">
+  <div class="flex items-start justify-between gap-3 mb-3">
+    <div class="flex items-center gap-3">
+      <div class="icon i-tt">TT</div>
+      <div>
+        <div class="text-[15px] font-semibold">TikTok Ads + Organic</div>
+        <div class="pill mt-0.5">TikTok Marketing API v1.3</div>
+      </div>
+    </div>
+    <div class="flex flex-wrap gap-1.5 justify-end">
+      <span class="badge b-free">Free forever</span>
+      <span class="badge b-time">~15 min setup</span>
+    </div>
+  </div>
+  <div class="step"><div class="step-n">1</div><div>Go to <a href="https://business.tiktok.com" target="_blank">business.tiktok.com</a> → log in with the SAMLA TikTok Business account</div></div>
+  <div class="step"><div class="step-n">2</div><div><b>My Assets</b> → <b>API</b> → <b>Manage API</b> → Create a new app → name it "SAMLA Dashboard"</div></div>
+  <div class="step"><div class="step-n">3</div><div>Enable scopes: <b>Ads Management</b> + <b>Analytics Read</b></div></div>
+  <div class="step"><div class="step-n">4</div><div>Copy the <b>Access Token</b> and your <b>Advertiser ID</b> (shown in TikTok Ads Manager URL)</div></div>
+  <div class="outcome"><b>Paid:</b> spend, CPM, CPC, CTR, leads, impressions, video views, completion rate · <b>Organic:</b> follower count, video views, profile visits, likes, comments, shares.</div>
+</div>
+
+<!-- YOUTUBE -->
+<div class="card mb-3">
+  <div class="flex items-start justify-between gap-3 mb-3">
+    <div class="flex items-center gap-3">
+      <div class="icon i-yt">YT</div>
+      <div>
+        <div class="text-[15px] font-semibold">YouTube</div>
+        <div class="pill mt-0.5">YouTube Data API v3</div>
+      </div>
+    </div>
+    <div class="flex flex-wrap gap-1.5 justify-end">
+      <span class="badge b-free">Free — 10K units/day</span>
+      <span class="badge b-time">~5 min setup</span>
+    </div>
+  </div>
+  <div class="step"><div class="step-n">1</div><div>Go to <a href="https://console.cloud.google.com" target="_blank">console.cloud.google.com</a> → Create Project → name it "SAMLA Analytics"</div></div>
+  <div class="step"><div class="step-n">2</div><div><b>APIs &amp; Services</b> → <b>Enable APIs</b> → search <b>YouTube Data API v3</b> → Enable</div></div>
+  <div class="step"><div class="step-n">3</div><div><b>Credentials</b> → <b>Create Credentials</b> → <b>API Key</b> → copy → done</div></div>
+  <div class="outcome"><b>Fetches:</b> subscriber count, total views, video count, watch time, impressions, CTR. 10,000 free units/day — way more than the dashboard needs.</div>
+</div>
+
+<!-- TWITTER / X -->
+<div class="card mb-3">
+  <div class="flex items-start justify-between gap-3 mb-3">
+    <div class="flex items-center gap-3">
+      <div class="icon i-x">X</div>
+      <div>
+        <div class="text-[15px] font-semibold">X / Twitter <span class="text-zinc-500 text-[12px] font-normal">· @SamlaGame</span></div>
+        <div class="pill mt-0.5">X API v2 — Free tier</div>
+      </div>
+    </div>
+    <div class="flex flex-wrap gap-1.5 justify-end">
+      <span class="badge b-warn">Bearer token</span>
+      <span class="badge b-time">~5 min setup</span>
+    </div>
+  </div>
+  <div class="step"><div class="step-n">1</div><div>Go to <a href="https://developer.x.com" target="_blank">developer.x.com</a> → create a free project → copy the <b>Bearer Token</b></div></div>
+  <div class="step"><div class="step-n">2</div><div>Paste the token in the dashboard Settings page</div></div>
+  <div class="outcome"><b>Fetches:</b> follower count, tweet impressions, likes, replies, profile visits (last 30 days). Note: X blocks some browser calls — may need a tiny CORS proxy.</div>
+</div>
+
+<!-- DISCORD -->
+<div class="card mb-3">
+  <div class="flex items-start justify-between gap-3 mb-3">
+    <div class="flex items-center gap-3">
+      <div class="icon i-dc">DC</div>
+      <div>
+        <div class="text-[15px] font-semibold">Discord Server</div>
+        <div class="pill mt-0.5">Discord API v10</div>
+      </div>
+    </div>
+    <div class="flex flex-wrap gap-1.5 justify-end">
+      <span class="badge b-warn">Bot token</span>
+      <span class="badge b-time">~10 min setup</span>
+    </div>
+  </div>
+  <div class="step"><div class="step-n">1</div><div>Go to <a href="https://discord.com/developers/applications" target="_blank">discord.com/developers/applications</a> → create app → <b>Bot</b> tab → copy token</div></div>
+  <div class="step"><div class="step-n">2</div><div>Invite bot to SAMLA server with <b>Manage Server</b> permission</div></div>
+  <div class="outcome"><b>Fetches:</b> member count, online count, channels, message activity. Note: Discord blocks browser calls — needs a tiny CORS proxy or server-side relay.</div>
+</div>
+
+<!-- ====================================================================== -->
+<!-- GROUP 3: GA4 -->
+<!-- ====================================================================== -->
+<div class="section-h">Group 3 — Google Analytics 4 (special case)</div>
+
+<div class="card mb-3">
+  <div class="flex items-start justify-between gap-3 mb-3">
+    <div class="flex items-center gap-3">
+      <div class="icon i-ga">GA4</div>
+      <div>
+        <div class="text-[15px] font-semibold">Google Analytics 4 <span class="text-zinc-500 text-[12px] font-normal">· samla.net</span></div>
+        <div class="pill mt-0.5">GA4 Data API v1</div>
+      </div>
+    </div>
+    <div class="flex flex-wrap gap-1.5 justify-end">
+      <span class="badge b-free">Free</span>
+      <span class="badge b-info">Best path: Looker iframe</span>
+    </div>
+  </div>
+  <div class="step"><div class="step-n">★</div><div><b>Easiest free option:</b> open <a href="https://lookerstudio.google.com" target="_blank">Looker Studio</a> (free by Google) → connect GA4 property → publish a public report → embed the URL as an iframe inside the dashboard. Zero code, 5 minutes.</div></div>
+  <div class="step"><div class="step-n">★</div><div><b>For raw JSON access:</b> Cloud Console → enable <b>Google Analytics Data API</b> → create a Service Account → download JSON key → run a free Cloudflare Worker as a CORS proxy.</div></div>
+  <div class="outcome">GA4 Data API blocks browser-side requests (no CORS). Looker Studio embed is the zero-code free solution and surfaces active users, sessions, bounce rate, traffic sources, and conversions.</div>
+</div>
+
+<!-- ====================================================================== -->
+<!-- GROUP 4: SERVER-SIDE -->
+<!-- ====================================================================== -->
+<div class="section-h">Group 4 — Server-side only (Python pipeline)</div>
+
+<div class="banner-amber rounded-xl px-5 py-4 mb-4">
+  <div class="text-[12.5px] text-zinc-200">
+    <span class="text-amber-400 font-semibold">Why server-side:</span> Google Ads and LinkedIn Ads APIs both reject browser-origin requests (CORS) and require OAuth refresh tokens that can't safely live in client-side code. The fetcher at <code>data_pipeline/fetch_ads.py</code> handles both server-side and writes to <code>live_data.json</code>, which the dashboard reads.
+  </div>
+</div>
+
+<div class="card mb-3">
+  <div class="flex items-start justify-between gap-3 mb-3">
+    <div class="flex items-center gap-3">
+      <div class="icon i-go">G</div>
+      <div>
+        <div class="text-[15px] font-semibold">Google Ads</div>
+        <div class="pill mt-0.5">Google Ads API v17</div>
+      </div>
+    </div>
+    <div class="flex flex-wrap gap-1.5 justify-end">
+      <span class="badge b-block">Manager Account required</span>
+      <span class="badge b-time">1–2 days approval</span>
+    </div>
+  </div>
+  <div class="step"><div class="step-n">1</div><div>Create a free Manager Account (MCC) at <a href="https://ads.google.com/home/tools/manager-accounts/" target="_blank">ads.google.com/home/tools/manager-accounts</a></div></div>
+  <div class="step"><div class="step-n">2</div><div>Link your Samla Ads account to the MCC: MCC → <b>Setup</b> → <b>Sub-account settings</b> → Link existing</div></div>
+  <div class="step"><div class="step-n">3</div><div>Inside the MCC, go to <b>Tools</b> → <b>API Center</b> → apply for a developer token (test token issued instantly, real one within ~1 business day)</div></div>
+  <div class="step"><div class="step-n">4</div><div>Mint a refresh token via <a href="https://developers.google.com/oauthplayground" target="_blank">OAuth Playground</a> with scope <code>https://www.googleapis.com/auth/adwords</code></div></div>
+  <div class="step"><div class="step-n">5</div><div>Paste all five values (developer token, client id, client secret, refresh token, customer id) into <code>data_pipeline/.env</code></div></div>
+  <div class="outcome"><b>Fetches:</b> account-lifetime spend, impressions, clicks, conversions, conversion value, CTR, CPC, ROAS. Pipeline run on schedule; dashboard reads from <code>live_data.json</code>.</div>
+</div>
+
+<div class="card mb-3">
+  <div class="flex items-start justify-between gap-3 mb-3">
+    <div class="flex items-center gap-3">
+      <div class="icon i-li">in</div>
+      <div>
+        <div class="text-[15px] font-semibold">LinkedIn Ads</div>
+        <div class="pill mt-0.5">LinkedIn Marketing API 202410</div>
+      </div>
+    </div>
+    <div class="flex flex-wrap gap-1.5 justify-end">
+      <span class="badge b-block">App review required</span>
+      <span class="badge b-time">~30 min</span>
+    </div>
+  </div>
+  <div class="step"><div class="step-n">1</div><div>Create an app at <a href="https://www.linkedin.com/developers/apps" target="_blank">linkedin.com/developers/apps</a></div></div>
+  <div class="step"><div class="step-n">2</div><div>Request products: <b>Advertising API</b> and <b>Marketing Developer Platform</b></div></div>
+  <div class="step"><div class="step-n">3</div><div>OAuth a user with scopes <code>r_ads</code>, <code>r_ads_reporting</code> → token lasts 60 days</div></div>
+  <div class="step"><div class="step-n">4</div><div>Paste token + numeric ad account id into <code>data_pipeline/.env</code></div></div>
+  <div class="outcome"><b>Fetches:</b> spend, impressions, clicks, external website conversions, one-click leads, CTR, CPC. Pipeline run on schedule; dashboard reads from <code>live_data.json</code>.</div>
+</div>
+
+<!-- ====================================================================== -->
+<!-- CHECKLIST -->
+<!-- ====================================================================== -->
+<div class="section-h">Connection Checklist</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
+  <div class="card">
+    <div class="text-[12.5px] font-semibold text-zinc-100 mb-2">Today (browser-side, ~30 min total)</div>
+    <label class="flex items-center gap-2 text-[12.5px] text-zinc-300 mb-1.5"><input type="checkbox" class="check"> Steam — auto, nothing to do</label>
+    <label class="flex items-center gap-2 text-[12.5px] text-zinc-300 mb-1.5"><input type="checkbox" class="check"> Meta Ads token + ad account id</label>
+    <label class="flex items-center gap-2 text-[12.5px] text-zinc-300 mb-1.5"><input type="checkbox" class="check"> TikTok access token + advertiser id</label>
+    <label class="flex items-center gap-2 text-[12.5px] text-zinc-300 mb-1.5"><input type="checkbox" class="check"> YouTube Data API key</label>
+    <label class="flex items-center gap-2 text-[12.5px] text-zinc-300 mb-1.5"><input type="checkbox" class="check"> X / Twitter bearer token</label>
+    <label class="flex items-center gap-2 text-[12.5px] text-zinc-300 mb-1.5"><input type="checkbox" class="check"> Discord bot token + guild id</label>
+    <label class="flex items-center gap-2 text-[12.5px] text-zinc-300 mb-1.5"><input type="checkbox" class="check"> Looker Studio public URL for GA4</label>
+    <label class="flex items-center gap-2 text-[12.5px] text-zinc-300"><input type="checkbox" class="check"> Paste all into dashboard Settings → Save</label>
+  </div>
+  <div class="card">
+    <div class="text-[12.5px] font-semibold text-zinc-100 mb-2">This week (server-side)</div>
+    <label class="flex items-center gap-2 text-[12.5px] text-zinc-300 mb-1.5"><input type="checkbox" class="check"> Create Google Ads MCC + apply for dev token</label>
+    <label class="flex items-center gap-2 text-[12.5px] text-zinc-300 mb-1.5"><input type="checkbox" class="check"> Link Samla account to MCC</label>
+    <label class="flex items-center gap-2 text-[12.5px] text-zinc-300 mb-1.5"><input type="checkbox" class="check"> Mint Google Ads OAuth refresh token</label>
+    <label class="flex items-center gap-2 text-[12.5px] text-zinc-300 mb-1.5"><input type="checkbox" class="check"> Create LinkedIn Marketing app</label>
+    <label class="flex items-center gap-2 text-[12.5px] text-zinc-300 mb-1.5"><input type="checkbox" class="check"> OAuth LinkedIn ads access</label>
+    <label class="flex items-center gap-2 text-[12.5px] text-zinc-300 mb-1.5"><input type="checkbox" class="check"> Fill in <code>data_pipeline/.env</code></label>
+    <label class="flex items-center gap-2 text-[12.5px] text-zinc-300 mb-1.5"><input type="checkbox" class="check"> Run <code>python3 fetch_ads.py</code> once to verify</label>
+    <label class="flex items-center gap-2 text-[12.5px] text-zinc-300"><input type="checkbox" class="check"> Schedule fetcher every 30 min</label>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="text-center text-[11px] text-zinc-600 mt-10 pb-6">
+  Samla Digital · Live Data Integration Plan · Files: <code>Samla_Dashboard_v4.html</code> · <code>data_pipeline/fetch_ads.py</code>
+</div>
+
+</div>
+</body>
+</html>

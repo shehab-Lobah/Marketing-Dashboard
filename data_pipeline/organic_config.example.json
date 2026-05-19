@@ -1,0 +1,20 @@
+{
+  "_comment": "TEMPLATE — copy this to organic_config.json and fill in real keys for local runs. The real organic_config.json is gitignored. In CI the workflow rebuilds it from GitHub Secrets at runtime.",
+  "discord": {
+    "invite_code": "samla"
+  },
+  "youtube": {
+    "channel_id": "UCLlVWr9OK_pXcjJ9Da7jCxA",
+    "api_key": "<PUT_YT_API_KEY_HERE>"
+  },
+  "twitter": {
+    "username": "SamlaGame",
+    "bearer_token": "<PUT_TW_BEARER_HERE>"
+  },
+  "tiktok": {
+    "username": "samlagame"
+  },
+  "steam": {
+    "appid": "3988870"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "generated_at": "2026-05-10T13:40:51.255564+00:00",
+  "duration_seconds": 1.41,
+  "totals": {
+    "spend": 0,
+    "impressions": 0,
+    "clicks": 0,
+    "conversions": 0,
+    "leads": 0,
+    "platforms_ok": [
+      "steam"
+    ],
+    "platforms_error": [
+      "google_ads",
+      "meta_ads",
+      "linkedin_ads",
+      "tiktok_ads",
+      "snapchat_ads"
+    ]
+  },
+  "platforms": {
+    "google_ads": {
+      "platform": "google_ads",
+      "status": "error",
+      "error": "missing credentials in .env",
+      "fetched_at": "2026-05-10T13:40:49.847171+00:00"
+    },
+    "meta_ads": {
+      "platform": "meta_ads",
+      "status": "error",
+      "error": "missing credentials in .env",
+      "fetched_at": "2026-05-10T13:40:49.847292+00:00"
+    },
+    "linkedin_ads": {
+      "platform": "linkedin_ads",
+      "status": "error",
+      "error": "missing credentials in .env",
+      "fetched_at": "2026-05-10T13:40:49.847295+00:00"
+    },
+    "tiktok_ads": {
+      "platform": "tiktok_ads",
+      "status": "error",
+      "error": "missing credentials in .env",
+      "fetched_at": "2026-05-10T13:40:49.847297+00:00"
+    },
+    "snapchat_ads": {
+      "platform": "snapchat_ads",
+      "status": "error",
+      "error": "missing credentials in .env",
+      "fetched_at": "2026-05-10T13:40:49.847299+00:00"
+    },
+    "steam": {
+      "platform": "steam",
+      "status": "ok",
+      "fetched_at": "2026-05-10T13:40:51.253586+00:00",
+      "app_id": "3988870",
+      "name": "SAMLA",
+      "release_date": "Coming soon",
+      "coming_soon": true,
+      "price": null,
+      "current_players_error": "404 Client Error: Not Found for url: https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=3988870",
+      "total_reviews": 0,
+      "review_score_desc": "No user reviews",
+      "total_positive": 0,
+      "total_negative": 0
+    }
+  }
+}

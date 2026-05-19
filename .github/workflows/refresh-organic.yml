@@ -1,0 +1,84 @@
+name: Refresh organic data
+
+# Runs the organic-data fetcher on a US-based GitHub runner — this
+# sidesteps TikTok's regional WAF that blocks the same script when run
+# directly from Saudi IPs. The freshly fetched data_pipeline/live_organic_data.js
+# is committed back to this branch so the dashboard always has live numbers.
+on:
+  schedule:
+    - cron: "0 * * * *"          # every hour, on the hour (UTC)
+  workflow_dispatch: {}           # also runnable manually from the Actions tab
+
+permissions:
+  contents: write                 # allow the bot to commit the refreshed JS
+
+concurrency:
+  group: refresh-organic
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install --quiet requests
+
+      - name: Inject secrets into organic_config.json
+        # The committed organic_config.json is a safe template (no keys).
+        # We rebuild it here from GitHub Secrets so the real keys never
+        # appear in the repo.
+        env:
+          YT_CHANNEL_ID: ${{ secrets.YT_CHANNEL_ID }}
+          YT_API_KEY:    ${{ secrets.YT_API_KEY }}
+          TW_BEARER:     ${{ secrets.TW_BEARER }}
+          DISCORD_INVITE: ${{ secrets.DISCORD_INVITE }}
+          TIKTOK_USERNAME: ${{ secrets.TIKTOK_USERNAME }}
+          STEAM_APPID:   ${{ secrets.STEAM_APPID }}
+        run: |
+          python3 - <<'PY'
+          import json, os
+          cfg = {
+              "discord":  { "invite_code":  os.environ.get("DISCORD_INVITE")  or "samla" },
+              "youtube":  { "channel_id":   os.environ.get("YT_CHANNEL_ID")   or "",
+                            "api_key":      os.environ.get("YT_API_KEY")      or "" },
+              "twitter":  { "username":     "SamlaGame",
+                            "bearer_token": os.environ.get("TW_BEARER")       or "" },
+              "tiktok":   { "username":     os.environ.get("TIKTOK_USERNAME") or "samlagame" },
+              "steam":    { "appid":        os.environ.get("STEAM_APPID")     or "3988870" },
+          }
+          with open("data_pipeline/organic_config.json", "w") as f:
+              json.dump(cfg, f, indent=2)
+          print("Wrote data_pipeline/organic_config.json (with secrets)")
+          PY
+
+      - name: Fetch organic data
+        run: python3 data_pipeline/fetch_organic.py
+        # If TikTok was the only thing erroring before (region-locked WAF),
+        # this runner being US-based should bypass that entirely.
+
+      - name: Scrub secret-filled config
+        # organic_config.json is gitignored, but delete it anyway as defence-in-depth
+        # so it can never end up in a commit even if .gitignore is missing on a branch.
+        if: always()
+        run: rm -f data_pipeline/organic_config.json
+
+      - name: Commit refreshed data
+        run: |
+          git config user.name  "samla-bot"
+          git config user.email "samla-bot@users.noreply.github.com"
+          git add data_pipeline/live_organic_data.js
+          if git diff --cached --quiet; then
+            echo "No changes to commit — data unchanged this cycle."
+          else
+            git commit -m "chore(data): hourly organic refresh [skip ci]"
+            git push
+          fi
