@@ -1,13 +1,13 @@
 window.SAMLA_ORGANIC = {
   "_meta": {
-    "updated_at": 1784114398.2292147,
-    "timestamp": "2026-07-15 11:19:58 UTC",
+    "updated_at": 1784120822.1195474,
+    "timestamp": "2026-07-15 13:07:02 UTC",
     "version": "3.0"
   },
   "discord": {
     "status": "success",
     "members": 1459,
-    "online": 296,
+    "online": 330,
     "name": "SAMLA",
     "invite": "samla"
   },
@@ -20,12 +20,19 @@ window.SAMLA_ORGANIC = {
     "note": "Add twitter.bearer_token to organic_config.json"
   },
   "tiktok": {
-    "status": "partial",
-    "source": "oembed",
+    "status": "success",
+    "source": "profile_page",
     "username": "samlagame",
     "display_name": "SAMLA",
-    "profile_url": "https://www.tiktok.com/@samlagame",
-    "note": "Profile page parse failed \u2014 used oEmbed fallback. See _tiktok_debug.html for raw page."
+    "verified": false,
+    "bio": "\u0644\u0639\u0628\u0629 \u0635\u0645\u0644\u0629 | Hero Shooter Battle Royale\n\u062c\u0627\u0621 \u0648\u0642\u062a \u0627\u0644\u0635\u0645\u0644\u0629 \ud83d\udd25\n\u0627\u0646\u0636\u0645 \u0644\u0646\u0627 \u0648\u0633\u062c\u0651\u0644 \u0641\u064a \u0627\u0644\u0640 Wishlist \u0627\u0644\u0622\u0646 \ud83d\udc47\ud83c\udffc",
+    "profile_pic": "https://p16-common-sign.tiktokcdn-us.com/tos-alisg-avt-0068/274b908f1832f994070d503395c102f8~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=9640&refresh_token=8429ff17&x-expires=1784293200&x-signature=SxfZLkUKm20Ehn%2Fs8ZlnxSiDXWo%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast5",
+    "followers": 18300,
+    "following": 0,
+    "likes": 209500,
+    "videos": 81,
+    "friends": 0,
+    "profile_url": "https://www.tiktok.com/@samlagame"
   },
   "steam": {
     "status": "success",
@@ -35,4 +42,4 @@ window.SAMLA_ORGANIC = {
     "average_2weeks": 0
   }
 };
-console.info('[Samla] Organic data loaded — 2026-07-15 11:19:58 UTC');
+console.info('[Samla] Organic data loaded — 2026-07-15 13:07:02 UTC');
