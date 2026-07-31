@@ -1,7 +1,7 @@
 window.SAMLA_ORGANIC = {
   "_meta": {
-    "updated_at": 1785524703.2935956,
-    "timestamp": "2026-07-31 19:05:03 UTC",
+    "updated_at": 1785531096.3604038,
+    "timestamp": "2026-07-31 20:51:36 UTC",
     "version": "3.0"
   },
   "discord": {
@@ -26,7 +26,7 @@ window.SAMLA_ORGANIC = {
     "display_name": "SAMLA",
     "verified": false,
     "bio": "\u0644\u0639\u0628\u0629 \u0635\u0645\u0644\u0629 | Hero Shooter \n\u062c\u0627\u0621 \u0648\u0642\u062a \u0627\u0644\u0635\u0645\u0644\u0629 \ud83d\udd25\n\u0627\u0646\u0636\u0645 \u0644\u0646\u0627 \u0648\u0633\u062c\u0651\u0644 \u0641\u064a \u0627\u0644\u0640 Wishlist \u0627\u0644\u0622\u0646 \ud83d\udc47\ud83c\udffc",
-    "profile_pic": "https://p16-common-sign.tiktokcdn-us.com/tos-alisg-avt-0068/2bf3c5387b6984b356eda5a2c35a9f12~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=9640&refresh_token=1c4f1a77&x-expires=1785697200&x-signature=LjDnpGmfMDE6uj5Jp2KfjEu0tfM%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+    "profile_pic": "https://p16-common-sign.tiktokcdn-us.com/tos-alisg-avt-0068/2bf3c5387b6984b356eda5a2c35a9f12~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=9640&refresh_token=d8997219&x-expires=1785700800&x-signature=kD0urq2%2Bx0%2BwYGI0vBIWO37xorg%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast5",
     "followers": 21100,
     "following": 0,
     "likes": 245500,
@@ -42,4 +42,4 @@ window.SAMLA_ORGANIC = {
     "average_2weeks": 0
   }
 };
-console.info('[Samla] Organic data loaded — 2026-07-31 19:05:03 UTC');
+console.info('[Samla] Organic data loaded — 2026-07-31 20:51:36 UTC');
