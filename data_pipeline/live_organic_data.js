@@ -1,13 +1,13 @@
 window.SAMLA_ORGANIC = {
   "_meta": {
-    "updated_at": 1787613175.946957,
-    "timestamp": "2026-08-24 23:12:55 UTC",
+    "updated_at": 1787618129.419204,
+    "timestamp": "2026-08-25 00:35:29 UTC",
     "version": "3.0"
   },
   "discord": {
     "status": "success",
     "members": 1413,
-    "online": 293,
+    "online": 283,
     "name": "SAMLA",
     "invite": "samla"
   },
@@ -35,4 +35,4 @@ window.SAMLA_ORGANIC = {
     "average_2weeks": 0
   }
 };
-console.info('[Samla] Organic data loaded — 2026-08-24 23:12:55 UTC');
+console.info('[Samla] Organic data loaded — 2026-08-25 00:35:29 UTC');
