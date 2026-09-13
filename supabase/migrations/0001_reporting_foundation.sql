@@ -185,6 +185,14 @@ alter table public.campaign_metrics_daily enable row level security;
 alter table public.web_metrics_daily enable row level security;
 alter table public.product_metrics_daily enable row level security;
 
+drop policy if exists "authenticated users can read brands" on public.brands;
+drop policy if exists "authenticated users can read ad accounts" on public.ad_accounts;
+drop policy if exists "authenticated users can read fx rates" on public.fx_rates_daily;
+drop policy if exists "authenticated users can read sync runs" on public.sync_runs;
+drop policy if exists "authenticated users can read campaign metrics" on public.campaign_metrics_daily;
+drop policy if exists "authenticated users can read web metrics" on public.web_metrics_daily;
+drop policy if exists "authenticated users can read product metrics" on public.product_metrics_daily;
+
 create policy "authenticated users can read brands"
     on public.brands for select to authenticated using (true);
 create policy "authenticated users can read ad accounts"
