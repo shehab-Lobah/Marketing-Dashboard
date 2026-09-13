@@ -2,7 +2,10 @@ from datetime import date
 from decimal import Decimal
 import unittest
 
-from data_pipeline.collectors.meta_ads import collect_meta_daily
+from data_pipeline.collectors.meta_ads import (
+    collect_meta_daily,
+    discover_meta_ad_accounts,
+)
 from data_pipeline.settings import AccountMapping
 
 
@@ -100,6 +103,48 @@ class MetaCollectorTests(unittest.TestCase):
                 end_date=date(2026, 7, 1),
                 client=FakeMetaClient([]),
             )
+
+    def test_discovers_accounts_and_strips_token_from_pagination(self) -> None:
+        client = FakeMetaClient(
+            [
+                {
+                    "data": [
+                        {
+                            "id": "act_123",
+                            "name": "SAMLA",
+                            "currency": "sar",
+                            "account_status": 1,
+                        }
+                    ],
+                    "paging": {
+                        "next": "https://graph.facebook.com/next?after=abc&access_token=secret"
+                    },
+                },
+                {
+                    "data": [
+                        {
+                            "id": "act_456",
+                            "name": "Jackaroo Strike",
+                            "currency": "USD",
+                        }
+                    ]
+                },
+            ]
+        )
+
+        accounts = discover_meta_ad_accounts(
+            access_token="test-token",
+            api_version="v99.0",
+            client=client,
+        )
+
+        self.assertEqual([item["external_account_id"] for item in accounts], ["act_123", "act_456"])
+        self.assertEqual(accounts[0]["currency"], "SAR")
+        self.assertEqual(accounts[0]["account_status"], "1")
+        self.assertNotIn("access_token", client.calls[1]["url"])
+        self.assertEqual(
+            client.calls[0]["headers"]["Authorization"], "Bearer test-token"
+        )
 
 
 if __name__ == "__main__":

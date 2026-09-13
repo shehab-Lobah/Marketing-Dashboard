@@ -19,6 +19,55 @@ class HTTPClient(Protocol):
     def get(self, url: str, **kwargs: Any) -> Any: ...
 
 
+def discover_meta_ad_accounts(
+    *,
+    access_token: str,
+    api_version: str,
+    client: HTTPClient | None = None,
+) -> list[dict[str, str]]:
+    """List ad accounts available to the token without exposing the token."""
+    if not access_token.strip():
+        raise ValueError("Meta access token is required")
+    if not re.fullmatch(r"v\d+\.\d+", api_version.strip()):
+        raise ValueError("Meta API version must use the form vNN.N")
+    if client is None:
+        import requests
+
+        client = requests.Session()
+
+    url: str | None = (
+        f"https://graph.facebook.com/{api_version.strip()}/me/adaccounts"
+    )
+    params: dict[str, object] | None = {
+        "fields": "id,name,currency,account_status",
+        "limit": 500,
+    }
+    headers = {"Authorization": f"Bearer {access_token}"}
+    accounts: list[dict[str, str]] = []
+
+    while url:
+        response = client.get(url, params=params, headers=headers, timeout=30)
+        response.raise_for_status()
+        payload = response.json()
+        for row in payload.get("data", []):
+            account_id = str(row.get("id", "")).strip()
+            if not account_id:
+                continue
+            accounts.append(
+                {
+                    "external_account_id": account_id,
+                    "display_name": str(row.get("name") or account_id),
+                    "currency": str(row.get("currency") or "USD").upper(),
+                    "account_status": str(row.get("account_status") or ""),
+                }
+            )
+        next_url = payload.get("paging", {}).get("next")
+        url = _without_access_token(str(next_url)) if next_url else None
+        params = None
+
+    return accounts
+
+
 def _action_map(values: list[dict[str, str]] | None) -> dict[str, Decimal]:
     return {
         str(item.get("action_type", "")): Decimal(str(item.get("value", "0")))

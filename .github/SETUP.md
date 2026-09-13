@@ -99,6 +99,12 @@ The workflow fetches the most recent seven days hourly and reconciles the most
 recent 30 days nightly. It upserts daily rows rather than committing analytics
 or credentials to GitHub.
 
+After adding `META_ACCESS_TOKEN` and `META_GRAPH_API_VERSION`, run the
+`Discover Meta ad accounts` workflow once. Its output lists the accessible ad
+account IDs, names, currencies and statuses without printing the token. Use
+those account IDs in `PAID_ACCOUNT_MAPPING_JSON` to assign each account to
+SAMLA or Jackaroo Strike.
+
 ## Pulling the latest data on the dashboard
 
 The dashboard's `<script src="data_pipeline/live_organic_data.js">` tag reads
