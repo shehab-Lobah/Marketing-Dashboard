@@ -14,13 +14,13 @@
 
 1. GitHub Actions requests a bounded daily window from each platform.
 2. Collectors normalize the responses to `DailyCampaignMetric` records.
-3. A service-role connection upserts those rows into Supabase.
+3. A server-only secret-key connection upserts those rows into Supabase.
 4. Supabase views calculate weekly, quarterly and YTD aggregates.
 5. The authenticated dashboard reads reporting views using the public anon key and user session.
 6. PDF and PowerPoint exports use the same filtered database records.
 
-The service-role key and advertising credentials exist only in GitHub Actions secrets.
-The browser never receives advertising access tokens or the service-role key.
+The Supabase secret key and advertising credentials exist only in GitHub Actions secrets.
+The browser never receives advertising access tokens or the Supabase secret key.
 
 ## Refresh policy
 
@@ -37,4 +37,3 @@ The browser never receives advertising access tokens or the service-role key.
 - Phase 4: GA4, website and Steam product metrics.
 - Phase 5: dashboard binding, authentication and automated report exports.
 - Phase 6: Bluehost deployment and operational monitoring.
-

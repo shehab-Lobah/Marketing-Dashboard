@@ -1,7 +1,7 @@
 """Server-side Supabase REST writer.
 
-This module is for GitHub Actions or another trusted backend only.  It requires
-the service-role key and must never be imported by browser code.
+This module is for GitHub Actions or another trusted backend only. It requires
+a Supabase secret key and must never be imported by browser code.
 """
 
 from __future__ import annotations
@@ -23,7 +23,7 @@ class SupabaseWriter:
     def __init__(
         self,
         url: str,
-        service_role_key: str,
+        secret_key: str,
         *,
         session: HTTPSession | None = None,
     ) -> None:
@@ -31,8 +31,8 @@ class SupabaseWriter:
         local = parsed.hostname in {"127.0.0.1", "localhost"}
         if parsed.scheme != "https" and not (local and parsed.scheme == "http"):
             raise ValueError("Supabase URL must use HTTPS")
-        if not service_role_key.strip():
-            raise ValueError("Supabase service-role key is required")
+        if not secret_key.strip():
+            raise ValueError("Supabase secret key is required")
         self.base_url = f"{url.rstrip('/')}/rest/v1"
         if session is None:
             import requests
@@ -40,8 +40,7 @@ class SupabaseWriter:
             session = requests.Session()
         self.session = session
         self.headers = {
-            "apikey": service_role_key,
-            "Authorization": f"Bearer {service_role_key}",
+            "apikey": secret_key,
             "Content-Type": "application/json",
         }
         self._account_ids: dict[tuple[str, str], str] = {}
@@ -51,7 +50,7 @@ class SupabaseWriter:
     def from_environment(cls) -> "SupabaseWriter":
         return cls(
             os.environ.get("SUPABASE_URL", ""),
-            os.environ.get("SUPABASE_SERVICE_ROLE_KEY", ""),
+            os.environ.get("SUPABASE_SECRET_KEY", ""),
         )
 
     def _request(self, method: str, table: str, **kwargs: Any) -> Any:

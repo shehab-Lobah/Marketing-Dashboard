@@ -36,7 +36,7 @@ class SupabaseWriterTests(unittest.TestCase):
         self.session = FakeSession()
         self.writer = SupabaseWriter(
             "https://example.supabase.co",
-            "test-service-role-key",
+            "sb_secret_test-key",
             session=self.session,
         )
         self.mapping = AccountMapping(
@@ -69,6 +69,8 @@ class SupabaseWriterTests(unittest.TestCase):
         self.assertEqual(row["ad_account_id"], "account-uuid")
         self.assertEqual(row["spend_usd"], "100.000000")
         self.assertNotIn("brand_slug", row)
+        self.assertEqual(metric_call["headers"]["apikey"], "sb_secret_test-key")
+        self.assertNotIn("Authorization", metric_call["headers"])
 
     def test_rejects_unmapped_account(self) -> None:
         record = DailyCampaignMetric.build(

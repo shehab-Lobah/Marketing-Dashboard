@@ -26,7 +26,7 @@ jobs:
       META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
       META_GRAPH_API_VERSION: ${{ vars.META_GRAPH_API_VERSION }}
       SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
       PAID_ACCOUNT_MAPPING_JSON: ${{ secrets.PAID_ACCOUNT_MAPPING_JSON }}
       BRAND_MAPPING_PATH: data_pipeline/brand_mapping.json
     steps:
@@ -37,7 +37,7 @@ jobs:
         id: config
         shell: bash
         run: |
-          if [[ -n "$META_ACCESS_TOKEN" && -n "$META_GRAPH_API_VERSION" && -n "$SUPABASE_URL" && -n "$SUPABASE_SERVICE_ROLE_KEY" && -n "$PAID_ACCOUNT_MAPPING_JSON" ]]; then
+          if [[ -n "$META_ACCESS_TOKEN" && -n "$META_GRAPH_API_VERSION" && -n "$SUPABASE_URL" && -n "$SUPABASE_SECRET_KEY" && -n "$PAID_ACCOUNT_MAPPING_JSON" ]]; then
             echo "ready=true" >> "$GITHUB_OUTPUT"
           else
             echo "ready=false" >> "$GITHUB_OUTPUT"
@@ -70,4 +70,3 @@ jobs:
       - name: Remove account mapping
         if: always()
         run: rm -f data_pipeline/brand_mapping.json
-
