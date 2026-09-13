@@ -10,6 +10,12 @@ on:
         description: Inclusive lookback window
         required: false
         default: "7"
+      start:
+        description: Optional historical start date (YYYY-MM-DD)
+        required: false
+      end:
+        description: Optional historical end date (YYYY-MM-DD)
+        required: false
 
 permissions:
   contents: read
@@ -63,9 +69,19 @@ jobs:
         shell: bash
         run: |
           days="${{ inputs.days }}"
+          start="${{ inputs.start }}"
+          end="${{ inputs.end }}"
           if [[ -z "$days" ]]; then days=7; fi
           if [[ "${{ github.event.schedule }}" == "43 0 * * *" ]]; then days=30; fi
-          python -m data_pipeline.sync_paid --platform meta --days "$days"
+          if [[ -n "$start" || -n "$end" ]]; then
+            if [[ -z "$start" || -z "$end" ]]; then
+              echo "Both start and end are required for a historical backfill." >&2
+              exit 1
+            fi
+            python -m data_pipeline.sync_paid --platform meta --start "$start" --end "$end"
+          else
+            python -m data_pipeline.sync_paid --platform meta --days "$days"
+          fi
 
       - name: Remove account mapping
         if: always()

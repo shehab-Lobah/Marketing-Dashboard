@@ -5,8 +5,9 @@
 > be used as the source for weekly, quarterly or YTD reporting. It will be
 > replaced platform by platform in Phases 2–3.
 
-The production pipeline stores daily campaign observations for SAMLA and
-Jackaroo Strike, preserving source currency and normalized USD spend. See
+The production pipeline stores the complete ad catalog plus daily campaign
+and ad observations for SAMLA and Jackaroo Strike, preserving source currency
+and normalized USD spend. See
 [`../ARCHITECTURE.md`](../ARCHITECTURE.md) and the migration in
 `../supabase/migrations/` for the reporting contract.
 
@@ -45,20 +46,29 @@ cp .env.example .env
 2. OAuth in, exchange code for long-lived access token.
 3. Advertiser ID is in the Ads Manager URL.
 
-## Running
+## Running the production Meta sync
 
 ```bash
-python3 fetch_ads.py
+python -m data_pipeline.sync_paid --platform meta --days 7
 ```
 
-Writes `live_data.json` next to the script. Each platform is wrapped in
-try/except — one missing/expired credential won't break the others.
+To backfill every day from the first known Meta activity:
+
+```bash
+python -m data_pipeline.sync_paid \
+  --platform meta \
+  --start 2025-12-14 \
+  --end 2026-09-13
+```
+
+The sync upserts the complete ad catalog, daily campaign metrics and daily
+ad metrics into Supabase. Re-running an overlapping range is safe.
 
 ## Schedule it
 
-Use the workspace's scheduling capability to run `fetch_ads.py` every 30
-minutes (or whatever cadence you want). The dashboard reads `live_data.json`
-on load, so a fresher JSON = fresher numbers.
+GitHub Actions refreshes the latest seven days hourly and reconciles the latest
+30 days nightly. The manual workflow accepts either a rolling `days` window or
+an explicit historical `start` and `end` range.
 
 ## Output shape
 

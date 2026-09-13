@@ -11,7 +11,7 @@ from collections.abc import Iterable
 from typing import Any, Protocol
 from urllib.parse import urlparse
 
-from .models import DailyCampaignMetric
+from .models import AdEntity, DailyAdMetric, DailyCampaignMetric
 from .settings import AccountMapping
 
 
@@ -131,6 +131,112 @@ class SupabaseWriter:
                 params={
                     "on_conflict": "ad_account_id,external_campaign_id,metric_date"
                 },
+                json=list(rows),
+                headers={"Prefer": "resolution=merge-duplicates,return=minimal"},
+            )
+            written += len(rows)
+            rows.clear()
+
+        for record in records:
+            identity = (record.platform, record.external_account_id)
+            mapping = mapping_index.get(identity)
+            if mapping is None:
+                raise ValueError(
+                    f"No brand mapping for {record.platform}/{record.external_account_id}"
+                )
+            if record.brand_slug != mapping.brand_slug:
+                raise ValueError(
+                    f"Record brand {record.brand_slug!r} conflicts with account mapping "
+                    f"{mapping.brand_slug!r}"
+                )
+            payload = record.to_ingest_row()
+            payload["brand_id"] = self._brand_id(record.brand_slug)
+            payload["ad_account_id"] = self.ensure_account(mapping)
+            payload.pop("brand_slug")
+            payload.pop("external_account_id")
+            rows.append(payload)
+            if len(rows) >= batch_size:
+                flush()
+        flush()
+        return written
+
+    def upsert_ad_metrics(
+        self,
+        records: Iterable[DailyAdMetric],
+        mappings: Iterable[AccountMapping],
+        *,
+        batch_size: int = 500,
+    ) -> int:
+        if batch_size < 1:
+            raise ValueError("batch_size must be positive")
+        mapping_index = {
+            (mapping.platform, mapping.external_account_id): mapping
+            for mapping in mappings
+        }
+        rows: list[dict[str, object]] = []
+        written = 0
+
+        def flush() -> None:
+            nonlocal written
+            if not rows:
+                return
+            self._request(
+                "POST",
+                "ad_metrics_daily",
+                params={"on_conflict": "ad_account_id,external_ad_id,metric_date"},
+                json=list(rows),
+                headers={"Prefer": "resolution=merge-duplicates,return=minimal"},
+            )
+            written += len(rows)
+            rows.clear()
+
+        for record in records:
+            identity = (record.platform, record.external_account_id)
+            mapping = mapping_index.get(identity)
+            if mapping is None:
+                raise ValueError(
+                    f"No brand mapping for {record.platform}/{record.external_account_id}"
+                )
+            if record.brand_slug != mapping.brand_slug:
+                raise ValueError(
+                    f"Record brand {record.brand_slug!r} conflicts with account mapping "
+                    f"{mapping.brand_slug!r}"
+                )
+            payload = record.to_ingest_row()
+            payload["brand_id"] = self._brand_id(record.brand_slug)
+            payload["ad_account_id"] = self.ensure_account(mapping)
+            payload.pop("brand_slug")
+            payload.pop("external_account_id")
+            rows.append(payload)
+            if len(rows) >= batch_size:
+                flush()
+        flush()
+        return written
+
+    def upsert_ad_entities(
+        self,
+        records: Iterable[AdEntity],
+        mappings: Iterable[AccountMapping],
+        *,
+        batch_size: int = 500,
+    ) -> int:
+        if batch_size < 1:
+            raise ValueError("batch_size must be positive")
+        mapping_index = {
+            (mapping.platform, mapping.external_account_id): mapping
+            for mapping in mappings
+        }
+        rows: list[dict[str, object]] = []
+        written = 0
+
+        def flush() -> None:
+            nonlocal written
+            if not rows:
+                return
+            self._request(
+                "POST",
+                "ad_entities",
+                params={"on_conflict": "ad_account_id,external_ad_id"},
                 json=list(rows),
                 headers={"Prefer": "resolution=merge-duplicates,return=minimal"},
             )

@@ -8,7 +8,11 @@ import sys
 from datetime import date, timedelta
 from pathlib import Path
 
-from .collectors.meta_ads import collect_meta_daily
+from .collectors.meta_ads import (
+    collect_meta_ad_daily,
+    collect_meta_ads_catalog,
+    collect_meta_daily,
+)
 from .settings import accounts_for_platform, load_account_mappings
 from .supabase_writer import SupabaseWriter
 
@@ -59,10 +63,28 @@ def main(argv: list[str] | None = None) -> int:
 
         token = os.environ.get("META_ACCESS_TOKEN", "")
         version = os.environ.get("META_GRAPH_API_VERSION", "")
-        records = []
+        campaign_records = []
+        ad_records = []
+        ad_entities = []
         for mapping in meta_accounts:
-            records.extend(
+            ad_entities.extend(
+                collect_meta_ads_catalog(
+                    mapping,
+                    access_token=token,
+                    api_version=version,
+                )
+            )
+            campaign_records.extend(
                 collect_meta_daily(
+                    mapping,
+                    access_token=token,
+                    api_version=version,
+                    start_date=start_date,
+                    end_date=end_date,
+                )
+            )
+            ad_records.extend(
+                collect_meta_ad_daily(
                     mapping,
                     access_token=token,
                     api_version=version,
@@ -73,16 +95,24 @@ def main(argv: list[str] | None = None) -> int:
 
         if args.dry_run:
             print(
-                f"Validated {len(records)} Meta daily campaign rows "
+                f"Validated {len(ad_entities)} Meta ads, "
+                f"{len(campaign_records)} daily campaign rows and "
+                f"{len(ad_records)} daily ad rows "
                 f"for {start_date.isoformat()}..{end_date.isoformat()}"
             )
             return 0
 
-        written = SupabaseWriter.from_environment().upsert_campaign_metrics(
-            records, mappings
+        writer = SupabaseWriter.from_environment()
+        ad_entities_written = writer.upsert_ad_entities(ad_entities, mappings)
+        campaign_written = writer.upsert_campaign_metrics(
+            campaign_records, mappings
+        )
+        ad_written = writer.upsert_ad_metrics(
+            ad_records, mappings
         )
         print(
-            f"Upserted {written} Meta daily campaign rows "
+            f"Upserted {ad_entities_written} Meta ads, "
+            f"{campaign_written} daily campaign rows and {ad_written} daily ad rows "
             f"for {start_date.isoformat()}..{end_date.isoformat()}"
         )
         return 0
@@ -93,4 +123,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-
