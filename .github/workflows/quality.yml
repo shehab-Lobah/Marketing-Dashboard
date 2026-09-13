@@ -29,3 +29,26 @@ jobs:
       - name: Run unit tests
         run: python -m unittest discover -s data_pipeline/tests -v
 
+  integration-readiness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    env:
+      META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+      META_GRAPH_API_VERSION: ${{ vars.META_GRAPH_API_VERSION }}
+      PAID_ACCOUNT_MAPPING_JSON: ${{ secrets.PAID_ACCOUNT_MAPPING_JSON }}
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+    steps:
+      - name: Verify required live-connection settings
+        shell: bash
+        run: |
+          missing=0
+          for key in META_ACCESS_TOKEN META_GRAPH_API_VERSION PAID_ACCOUNT_MAPPING_JSON SUPABASE_URL SUPABASE_SECRET_KEY; do
+            if [[ -z "${!key}" ]]; then
+              echo "::error::$key is not configured"
+              missing=1
+            else
+              echo "$key is configured"
+            fi
+          done
+          exit "$missing"
