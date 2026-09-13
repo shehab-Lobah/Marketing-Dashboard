@@ -1188,7 +1188,7 @@
             stroke="none">
             <path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" />
           </svg>Keys <span
-            class="ml-auto text-[9px] bg-zinc-800 text-zinc-500 px-1.5 py-0.5 rounded-full sb-text">772</span></button>
+            class="ml-auto text-[9px] bg-zinc-800 text-zinc-500 px-1.5 py-0.5 rounded-full sb-text">N/A</span></button>
         <div class="px-4 pt-3 pb-0.5 text-[9px] text-zinc-500 uppercase tracking-widest font-semibold">Reports</div>
         <button class="si w-full text-left flex items-center gap-2 px-4 py-1.5 text-zinc-400"
           onclick="nav('weekly',this)" data-tooltip="Weekly Report"><svg width="11" height="11" viewBox="0 0 24 24"
@@ -1248,7 +1248,7 @@
               </div>
               <div class="min-w-0 sb-text">
                 <div class="text-[11px] font-bold text-zinc-100">Live Sync</div>
-                <div class="text-[9px] text-zinc-500 truncate">Last: <span class="text-zinc-300">May 2</span></div>
+                <div class="text-[9px] text-zinc-500 truncate">Last: <span class="text-zinc-300">Sep 13</span></div>
               </div>
             </div>
             <button onclick="if(window.runLiveFetch)runLiveFetch()"
@@ -1270,22 +1270,22 @@
         <span id="pg-title" class="text-[13px] font-semibold text-zinc-100 mr-1">Dashboard</span>
         <div class="w-px h-4 bg-zinc-800"></div>
         <div class="flex items-center gap-0.5 bg-zinc-900 border border-zinc-800 rounded-lg p-0.5">
-          <button class="pb on text-[11px] px-2.5 py-1 rounded-md border border-transparent"
+          <button class="pb text-[11px] px-2.5 py-1 rounded-md border border-transparent text-zinc-500"
             onclick="setPeriod('7D',this)">7D</button>
           <button class="pb text-[11px] px-2.5 py-1 rounded-md border border-transparent text-zinc-500"
             onclick="setPeriod('30D',this)">30D</button>
           <button class="pb text-[11px] px-2.5 py-1 rounded-md border border-transparent text-zinc-500"
             onclick="setPeriod('90D',this)">90D</button>
-          <button class="pb text-[11px] px-2.5 py-1 rounded-md border border-transparent text-zinc-500"
+          <button class="pb on text-[11px] px-2.5 py-1 rounded-md border border-transparent"
             onclick="setPeriod('all',this)">All</button>
           <button class="pb text-[11px] px-2.5 py-1 rounded-md border border-transparent text-zinc-500"
             onclick="setPeriod('custom',this)">Custom</button>
         </div>
         <div id="crange" class="hidden items-center gap-1.5">
-          <input type="date" id="dfrom" value="2025-11-01"
+          <input type="date" id="dfrom" value="2025-12-14"
             class="bg-zinc-900 border border-zinc-700 rounded px-2 py-0.5 text-[11px] text-zinc-300 focus:outline-none focus:border-brand" />
           <span class="text-zinc-600 text-[11px]">to</span>
-          <input type="date" id="dto" value="2026-05-02"
+          <input type="date" id="dto" value="2026-09-13"
             class="bg-zinc-900 border border-zinc-700 rounded px-2 py-0.5 text-[11px] text-zinc-300 focus:outline-none focus:border-brand" />
           <button onclick="applyRange()"
             class="text-[11px] bg-brand text-black font-bold px-2.5 py-0.5 rounded">Apply</button>
@@ -1346,13 +1346,13 @@
               <div class="flex items-center gap-2 flex-wrap justify-end">
                 <div class="flex items-center gap-0.5 bg-zinc-900/60 border border-zinc-800 rounded-full p-1">
                   <button onclick="setHeroMetric('reach',this)"
-                    class="ov-metric-pill on text-[10.5px] px-3 py-1 rounded-full bg-zinc-800/80 text-zinc-100 font-medium"
+                    class="ov-metric-pill text-[10.5px] px-3 py-1 rounded-full text-zinc-500 hover:text-zinc-300"
                     data-m="reach">Reach</button>
                   <button onclick="setHeroMetric('ea',this)"
                     class="ov-metric-pill text-[10.5px] px-3 py-1 rounded-full text-zinc-500 hover:text-zinc-300"
                     data-m="ea">EA</button>
                   <button onclick="setHeroMetric('spend',this)"
-                    class="ov-metric-pill text-[10.5px] px-3 py-1 rounded-full text-zinc-500 hover:text-zinc-300"
+                    class="ov-metric-pill on text-[10.5px] px-3 py-1 rounded-full bg-zinc-800/80 text-zinc-100 font-medium"
                     data-m="spend">Spend</button>
                   <button onclick="setHeroMetric('wishlist',this)"
                     class="ov-metric-pill text-[10.5px] px-3 py-1 rounded-full text-zinc-500 hover:text-zinc-300"
@@ -4888,7 +4888,7 @@
     };
 
     // ═════════════════════ STATE & HELPERS ══════════════════════════════════
-    let curPeriod = '7D', curG = 'weekly', cmpMode = false, cPage = 'overview';
+    let curPeriod = 'all', curG = 'weekly', cmpMode = false, cPage = 'overview';
     let cFrom = null, cTo = null;
     const NOW = new Date('2026-09-13');
     const charts = {};
@@ -4899,7 +4899,7 @@
       if (curPeriod === '7D') { d.setDate(d.getDate() - 7); return [d, NOW]; }
       if (curPeriod === '30D') { d.setDate(d.getDate() - 30); return [d, NOW]; }
       if (curPeriod === '90D') { d.setDate(d.getDate() - 90); return [d, NOW]; }
-      return [new Date('2025-11-01'), NOW];
+      return [new Date('2025-12-14'), NOW];
     }
     function fw() { 
       const [a, b] = getRange(); 
@@ -4996,7 +4996,7 @@
       wishlist: { label: 'Gaming wishlist count (all stores)', totalFn: f => getCurrentSteamWishlists() || last(f).wish || 0, seriesFn: f => f.map(w => w.wish), fmtVal: v => fmt(v), isCur: false },
       engagement: { label: 'Aggregate engagement (followers + EA)', totalFn: f => getCurrentTotalFollowers() + f.reduce((s, w) => s + w.ea_d * 7, 0), seriesFn: f => f.map(w => w.fol + w.ea_d * 7), fmtVal: v => fmt(v), isCur: false },
     };
-    let heroCurMetric = 'reach';
+    let heroCurMetric = 'spend';
 
     function setHeroMetric(m, btn) {
       heroCurMetric = m;
