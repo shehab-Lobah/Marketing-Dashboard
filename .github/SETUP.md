@@ -83,6 +83,22 @@ It reads `data_pipeline/organic_config.json` (the gitignored real-keys file).
 If that file is missing, copy `organic_config.example.json` to
 `organic_config.json` and fill in the keys.
 
+## Paid-media foundation
+
+The paid workflow writes daily campaign rows to Supabase. Before enabling it:
+
+1. Apply `supabase/migrations/0001_reporting_foundation.sql` in the Supabase SQL editor.
+2. Add repository secrets `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`,
+   `META_ACCESS_TOKEN`, and `PAID_ACCOUNT_MAPPING_JSON`.
+3. Add repository variable `META_GRAPH_API_VERSION` using a currently supported
+   version from Meta's developer dashboard.
+4. Build `PAID_ACCOUNT_MAPPING_JSON` from
+   `data_pipeline/brand_mapping.example.json`, replacing the placeholder IDs.
+
+The workflow fetches the most recent seven days hourly and reconciles the most
+recent 30 days nightly. It upserts daily rows rather than committing analytics
+or credentials to GitHub.
+
 ## Pulling the latest data on the dashboard
 
 The dashboard's `<script src="data_pipeline/live_organic_data.js">` tag reads

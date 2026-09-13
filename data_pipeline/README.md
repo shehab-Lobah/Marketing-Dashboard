@@ -1,7 +1,14 @@
-# Samla Digital — Real-time Ad Data Pipeline
+# Lobah Marketing Dashboard — Data Pipeline
 
-Pulls Google Ads, Meta Ads, LinkedIn Ads, and TikTok Ads totals into a single
-JSON the dashboard consumes. Designed to run on a schedule.
+> Foundation status: the historical Supabase model and canonical daily record
+> are ready. `fetch_ads.py` is the legacy account-total prototype and must not
+> be used as the source for weekly, quarterly or YTD reporting. It will be
+> replaced platform by platform in Phases 2–3.
+
+The production pipeline stores daily campaign observations for SAMLA and
+Jackaroo Strike, preserving source currency and normalized USD spend. See
+[`../ARCHITECTURE.md`](../ARCHITECTURE.md) and the migration in
+`../supabase/migrations/` for the reporting contract.
 
 ## Setup (one-time)
 
