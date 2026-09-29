@@ -7,6 +7,7 @@ data_pipeline/.env.*
 !data_pipeline/.env.example
 # real organic config (has API keys); the template ships as organic_config.example.json
 data_pipeline/organic_config.json
+data_pipeline/brand_mapping.json
 
 # ── Python cruft ───────────────────────────────────────────────────
 __pycache__/

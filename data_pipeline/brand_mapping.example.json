@@ -1,0 +1,29 @@
+{
+  "accounts": [
+    {
+      "brand_slug": "samla",
+      "platform": "meta_ads",
+      "external_account_id": "act_REPLACE_ME",
+      "display_name": "SAMLA Meta",
+      "currency": "USD"
+    },
+    {
+      "brand_slug": "jackaroo-strike",
+      "platform": "tiktok_ads",
+      "external_account_id": "REPLACE_ME",
+      "display_name": "Jackaroo Strike TikTok",
+      "currency": "USD"
+    }
+  ],
+  "campaign_name_rules": [
+    {
+      "brand_slug": "samla",
+      "contains_any": ["samla", "sml"]
+    },
+    {
+      "brand_slug": "jackaroo-strike",
+      "contains_any": ["jackaroo", "js"]
+    }
+  ]
+}
+
