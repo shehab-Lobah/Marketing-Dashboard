@@ -83,6 +83,34 @@ It reads `data_pipeline/organic_config.json` (the gitignored real-keys file).
 If that file is missing, copy `organic_config.example.json` to
 `organic_config.json` and fill in the keys.
 
+## Paid-media foundation
+
+The paid workflow writes daily campaign rows to Supabase. Before enabling it:
+
+1. Apply `supabase/migrations/0001_reporting_foundation.sql`, then
+   `supabase/migrations/0002_full_meta_history.sql`, in the Supabase SQL editor.
+2. Add repository secrets `SUPABASE_URL`, `SUPABASE_SECRET_KEY`,
+   `META_ACCESS_TOKEN`, and `PAID_ACCOUNT_MAPPING_JSON`.
+3. Add repository variable `META_GRAPH_API_VERSION` using a currently supported
+   version from Meta's developer dashboard.
+4. Build `PAID_ACCOUNT_MAPPING_JSON` from
+   `data_pipeline/brand_mapping.example.json`, replacing the placeholder IDs.
+
+The workflow refreshes the complete ad catalog, fetches the most recent seven
+days hourly and reconciles the most recent 30 days nightly. It stores daily
+campaign and ad rows rather than committing analytics or credentials to GitHub.
+
+For the first full-history import, run **Refresh paid media data** manually and
+set `start` to the earliest account activity date and `end` to today. The first
+known SAMLA Meta activity is `2025-12-14`; use the Jackaroo account's earlier
+date if account discovery shows older delivery.
+
+After adding `META_ACCESS_TOKEN` and `META_GRAPH_API_VERSION`, run the
+`Discover Meta ad accounts` workflow once. Its output lists the accessible ad
+account IDs, names, currencies and statuses without printing the token. Use
+those account IDs in `PAID_ACCOUNT_MAPPING_JSON` to assign each account to
+SAMLA or Jackaroo Strike.
+
 ## Pulling the latest data on the dashboard
 
 The dashboard's `<script src="data_pipeline/live_organic_data.js">` tag reads

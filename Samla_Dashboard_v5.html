@@ -32,6 +32,47 @@
   </script>
   <script src="data_pipeline/live_data.js"
     onerror="console.info('No live_data.js yet — run python3 data_pipeline/fetch_ads.py to generate it.')"></script>
+  <script src="data_pipeline/meta_verified_snapshot.js"
+    onerror="console.info('No verified Meta snapshot available.')"></script>
+  <script>
+    window.META_VERIFIED_SNAPSHOT=window.META_VERIFIED_SNAPSHOT||{
+      refreshed_at:"2026-09-13T00:00:00Z",source:"Meta Ads MCP verified snapshot",currency:"USD",brands:{
+        samla:{name:"SAMLA",status:"connected",account_id:"847078927677540",history_start:"2025-12-14",through:"2026-09-13",
+          all_time:{spend:29716.79,impressions:75203344,clicks:1123811,link_clicks:945794,landing_page_views:263212,campaigns:27,ads:87},
+          ytd:{spend:29416.50,impressions:74538187,reach:12943318,clicks:1111743,link_clicks:934713,landing_page_views:260537,cpc:.03,cpm:.39,ctr:1.49},
+          quarters:[
+            {quarter:"Q1",period:"Jan 1–Mar 31",spend:9864.01,impressions:20533453,reach:4933827,clicks:369067,link_clicks:291975,landing_page_views:27763,cpc:.03,cpm:.48,ctr:1.80,partial:false},
+            {quarter:"Q2",period:"Apr 1–Jun 30",spend:12908.53,impressions:34292620,reach:6900576,clicks:507090,link_clicks:451518,landing_page_views:144803,cpc:.03,cpm:.38,ctr:1.48,partial:false},
+            {quarter:"Q3",period:"Jul 1–Sep 13",spend:6643.96,impressions:19712114,reach:6940199,clicks:235586,link_clicks:191220,landing_page_views:87971,cpc:.03,cpm:.34,ctr:1.20,partial:true}],
+          q3_weeks:[
+            {period:"Jul 1–7",spend:1347.35,impressions:3000857,reach:1936327,clicks:61027,link_clicks:48902,landing_page_views:22022,cpc:.02,ctr:2.03},
+            {period:"Jul 8–14",spend:1946.75,impressions:6321629,reach:2670475,clicks:82841,link_clicks:67730,landing_page_views:31882,cpc:.02,ctr:1.31},
+            {period:"Jul 15–21",spend:511.79,impressions:1828703,reach:1401380,clicks:19592,link_clicks:16324,landing_page_views:6797,cpc:.03,ctr:1.07},
+            {period:"Jul 22–28",spend:0,impressions:0,reach:0,clicks:0,link_clicks:0,landing_page_views:0,cpc:null,ctr:null},
+            {period:"Jul 29–Aug 4",spend:1937.59,impressions:7906036,reach:4508054,clicks:57370,link_clicks:46364,landing_page_views:18866,cpc:.03,ctr:.73},
+            {period:"Aug 5–11",spend:49.19,impressions:164379,reach:157387,clicks:265,link_clicks:202,landing_page_views:null,cpc:.19,ctr:.16},
+            {period:"Aug 12–18",spend:192.31,impressions:126309,reach:79092,clicks:4126,link_clicks:3093,landing_page_views:2261,cpc:.05,ctr:3.27},
+            {period:"Aug 19–25",spend:589.28,impressions:327195,reach:181425,clicks:9438,link_clicks:7824,landing_page_views:5789,cpc:.06,ctr:2.88},
+            {period:"Aug 26–Sep 1",spend:69.70,impressions:37006,reach:32015,clicks:927,link_clicks:781,landing_page_views:354,cpc:.08,ctr:2.50},
+            {period:"Sep 2–8",spend:0,impressions:0,reach:0,clicks:0,link_clicks:0,landing_page_views:0,cpc:null,ctr:null},
+            {period:"Sep 9–13",spend:0,impressions:0,reach:0,clicks:0,link_clicks:0,landing_page_views:0,cpc:null,ctr:null}],
+          top_ads:[
+            {name:"Portal traffic campaign — Closed Beta — Gameplay",spend:2225.76,impressions:4913375,clicks:105448,link_clicks:93754,landing_page_views:20264,ctr:2.15,cpc:.02},
+            {name:"Steam Asir Carousel",spend:2122.44,impressions:12343624,clicks:17074,link_clicks:7863,landing_page_views:1525,ctr:.14,cpc:.12},
+            {name:"Tailored leads campaign",spend:1871.93,impressions:7797983,clicks:139523,link_clicks:105950,landing_page_views:35,ctr:1.79,cpc:.01},
+            {name:"Samla Lead Generation — Form",spend:1778.72,impressions:766037,clicks:10050,link_clicks:6532,landing_page_views:72,ctr:1.31,cpc:.18},
+            {name:"Steam KeyArt Video",spend:1645.55,impressions:9243657,clicks:10512,link_clicks:2651,landing_page_views:2,ctr:.11,cpc:.16},
+            {name:"Promoting Samla — Copy",spend:1362.77,impressions:899889,clicks:39034,link_clicks:38986,landing_page_views:33,ctr:4.34,cpc:.03},
+            {name:"Tailored Web Traffic",spend:1358,impressions:4103668,clicks:68573,link_clicks:60082,landing_page_views:26356,ctr:1.67,cpc:.02},
+            {name:"Busina",spend:863.55,impressions:961399,clicks:35964,link_clicks:30377,landing_page_views:13151,ctr:3.74,cpc:.02},
+            {name:"Map Carousel I Awareness",spend:857.76,impressions:4405401,clicks:9253,link_clicks:3452,landing_page_views:0,ctr:.21,cpc:.09},
+            {name:"Competition Video 1",spend:760.57,impressions:1006472,clicks:25081,link_clicks:24772,landing_page_views:13804,ctr:2.49,cpc:.03}],
+          website_events_28d:[{dataset:"Samla Website",event:"PageView",total:729},{dataset:"Samla Portal",event:"PageView",total:297}],
+          notes:["Q3 is partial through Sep 13, 2026.","Reach is reported per period and is not summed across quarters.","All-time campaign and ad totals differ slightly because Meta returns different reporting scopes."]},
+        jackaroo:{name:"Jackaroo Strike",status:"limited",scope:"ACTIVE ads only",history_account_id:"1441214740937728",queryable_account_id:"864949909998795",message:"Jackaroo is scheduled after the SAMLA dashboard is finalized.",queryable_account:{campaigns:0,ads:0,spend:0,impressions:0,clicks:0},notes:["Jackaroo data is deferred until SAMLA is approved.","Paused and archived Jackaroo ads will remain excluded."]}
+      }
+    };
+  </script>
   <script src="data_pipeline/live_organic_data.js"
     onerror="console.info('No live_organic_data.js yet — run python3 data_pipeline/fetch_organic.py')"></script>
   <!-- tsparticles for subtle flowing background VFX -->
@@ -1062,7 +1103,7 @@
             stroke="none">
             <path d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10zm-11 5h2v-5h-2v5zm0-7h2V7h-2v3z" />
           </svg>Paid Ads</button>
-        <button class="si w-full text-left flex items-center gap-2 px-4 py-1.5 text-zinc-400" onclick="nav('meta',this)"
+        <button class="si w-full text-left flex items-center gap-2 px-4 py-1.5 text-zinc-400" onclick="nav('meta_live',this)"
           data-tooltip="Facebook & Instagram Ads"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"
             stroke="none">
             <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 3.656 11.127 8.812 13.223v-9.35h-3.393v-3.873h3.393v-2.951c0-3.348 2.043-5.178 5.032-5.178 1.432 0 2.931.256 2.931.256v3.22h-1.65c-1.659 0-2.164 1.03-2.164 2.086v2.567h3.63l-.58 3.873h-3.05v9.35c5.156-2.096 8.812-7.233 8.812-13.223z" />
@@ -1147,7 +1188,7 @@
             stroke="none">
             <path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" />
           </svg>Keys <span
-            class="ml-auto text-[9px] bg-zinc-800 text-zinc-500 px-1.5 py-0.5 rounded-full sb-text">772</span></button>
+            class="ml-auto text-[9px] bg-zinc-800 text-zinc-500 px-1.5 py-0.5 rounded-full sb-text">N/A</span></button>
         <div class="px-4 pt-3 pb-0.5 text-[9px] text-zinc-500 uppercase tracking-widest font-semibold">Reports</div>
         <button class="si w-full text-left flex items-center gap-2 px-4 py-1.5 text-zinc-400"
           onclick="nav('weekly',this)" data-tooltip="Weekly Report"><svg width="11" height="11" viewBox="0 0 24 24"
@@ -1207,7 +1248,7 @@
               </div>
               <div class="min-w-0 sb-text">
                 <div class="text-[11px] font-bold text-zinc-100">Live Sync</div>
-                <div class="text-[9px] text-zinc-500 truncate">Last: <span class="text-zinc-300">May 2</span></div>
+                <div class="text-[9px] text-zinc-500 truncate">Last: <span class="text-zinc-300">Sep 13</span></div>
               </div>
             </div>
             <button onclick="if(window.runLiveFetch)runLiveFetch()"
@@ -1229,22 +1270,22 @@
         <span id="pg-title" class="text-[13px] font-semibold text-zinc-100 mr-1">Dashboard</span>
         <div class="w-px h-4 bg-zinc-800"></div>
         <div class="flex items-center gap-0.5 bg-zinc-900 border border-zinc-800 rounded-lg p-0.5">
-          <button class="pb on text-[11px] px-2.5 py-1 rounded-md border border-transparent"
+          <button class="pb text-[11px] px-2.5 py-1 rounded-md border border-transparent text-zinc-500"
             onclick="setPeriod('7D',this)">7D</button>
           <button class="pb text-[11px] px-2.5 py-1 rounded-md border border-transparent text-zinc-500"
             onclick="setPeriod('30D',this)">30D</button>
           <button class="pb text-[11px] px-2.5 py-1 rounded-md border border-transparent text-zinc-500"
             onclick="setPeriod('90D',this)">90D</button>
-          <button class="pb text-[11px] px-2.5 py-1 rounded-md border border-transparent text-zinc-500"
+          <button class="pb on text-[11px] px-2.5 py-1 rounded-md border border-transparent"
             onclick="setPeriod('all',this)">All</button>
           <button class="pb text-[11px] px-2.5 py-1 rounded-md border border-transparent text-zinc-500"
             onclick="setPeriod('custom',this)">Custom</button>
         </div>
         <div id="crange" class="hidden items-center gap-1.5">
-          <input type="date" id="dfrom" value="2025-11-01"
+          <input type="date" id="dfrom" value="2025-12-14"
             class="bg-zinc-900 border border-zinc-700 rounded px-2 py-0.5 text-[11px] text-zinc-300 focus:outline-none focus:border-brand" />
           <span class="text-zinc-600 text-[11px]">to</span>
-          <input type="date" id="dto" value="2026-05-02"
+          <input type="date" id="dto" value="2026-09-13"
             class="bg-zinc-900 border border-zinc-700 rounded px-2 py-0.5 text-[11px] text-zinc-300 focus:outline-none focus:border-brand" />
           <button onclick="applyRange()"
             class="text-[11px] bg-brand text-black font-bold px-2.5 py-0.5 rounded">Apply</button>
@@ -1305,13 +1346,13 @@
               <div class="flex items-center gap-2 flex-wrap justify-end">
                 <div class="flex items-center gap-0.5 bg-zinc-900/60 border border-zinc-800 rounded-full p-1">
                   <button onclick="setHeroMetric('reach',this)"
-                    class="ov-metric-pill on text-[10.5px] px-3 py-1 rounded-full bg-zinc-800/80 text-zinc-100 font-medium"
+                    class="ov-metric-pill text-[10.5px] px-3 py-1 rounded-full text-zinc-500 hover:text-zinc-300"
                     data-m="reach">Reach</button>
                   <button onclick="setHeroMetric('ea',this)"
                     class="ov-metric-pill text-[10.5px] px-3 py-1 rounded-full text-zinc-500 hover:text-zinc-300"
                     data-m="ea">EA</button>
                   <button onclick="setHeroMetric('spend',this)"
-                    class="ov-metric-pill text-[10.5px] px-3 py-1 rounded-full text-zinc-500 hover:text-zinc-300"
+                    class="ov-metric-pill on text-[10.5px] px-3 py-1 rounded-full bg-zinc-800/80 text-zinc-100 font-medium"
                     data-m="spend">Spend</button>
                   <button onclick="setHeroMetric('wishlist',this)"
                     class="ov-metric-pill text-[10.5px] px-3 py-1 rounded-full text-zinc-500 hover:text-zinc-300"
@@ -1626,6 +1667,11 @@
           <div class="bg-brand/5 border border-brand/15 rounded-xl px-4 py-3 text-[12px] text-brand mt-3">Lead
             generation outperforms traffic/conversion on every platform tested. Applying the strategy to a new platform
             consistently yields +30% lift. Recommend Meta + TikTok reactivation first when budget resumes.</div>
+        </div>
+
+        <!-- ═══ VERIFIED LIVE META ═══ -->
+        <div id="pg-meta_live" class="pg">
+          <div id="meta-live-root"></div>
         </div>
 
         <!-- ═══ META ═══ -->
@@ -4808,58 +4854,43 @@
   <script>
     // ═══════════════════════ DATA ═══════════════════════════════════════════
 
-    // Weekly base data — confirmed weeks from PDF reports marked conf:true
+    // Verified SAMLA Meta weeks only. Unvalidated channel/product metrics remain zero.
     const W = [
-      { end: '2025-11-09', ea_d: 15, wish: 390, sv: 400, users: 4500, fol: 600, views: 800000, meta_spend: 0, tt_spend: 0, g_spend: 0, sc_spend: 0, tt_leads: 0, meta_leads: 0, conf: false },
-      { end: '2025-11-16', ea_d: 20, wish: 415, sv: 900, users: 5800, fol: 950, views: 1300000, meta_spend: 200, tt_spend: 100, g_spend: 0, sc_spend: 50, tt_leads: 8, meta_leads: 12, conf: false },
-      { end: '2025-11-23', ea_d: 30, wish: 445, sv: 1700, users: 7500, fol: 1400, views: 2000000, meta_spend: 400, tt_spend: 200, g_spend: 0, sc_spend: 100, tt_leads: 20, meta_leads: 30, conf: false },
-      { end: '2025-11-30', ea_d: 42, wish: 468, sv: 3000, users: 9500, fol: 2000, views: 2900000, meta_spend: 600, tt_spend: 300, g_spend: 100, sc_spend: 150, tt_leads: 38, meta_leads: 55, conf: false },
-      { end: '2025-12-07', ea_d: 55, wish: 494, sv: 4800, users: 12500, fol: 2600, views: 3900000, meta_spend: 900, tt_spend: 400, g_spend: 200, sc_spend: 150, tt_leads: 55, meta_leads: 80, conf: false },
-      { end: '2025-12-14', ea_d: 68, wish: 548, sv: 7500, users: 17500, fol: 3400, views: 5400000, meta_spend: 1400, tt_spend: 600, g_spend: 300, sc_spend: 150, tt_leads: 80, meta_leads: 120, conf: false },
-      { end: '2025-12-21', ea_d: 80, wish: 586, sv: 11000, users: 21500, fol: 4200, views: 7200000, meta_spend: 2000, tt_spend: 800, g_spend: 400, sc_spend: 156, tt_leads: 110, meta_leads: 170, conf: false },
-      // CONFIRMED Dec-Jan Wk3
-      { end: '2026-01-19', ea_d: 90, wish: 624, sv: 18735, users: 24000, fol: 5000, views: 8700000, meta_spend: 3022, tt_spend: 1044, g_spend: 1093, sc_spend: 606, tt_leads: 180, meta_leads: 280, conf: true },
-      // CONFIRMED Dec-Jan Wk4
-      { end: '2026-01-26', ea_d: 180, wish: 660, sv: 30396, users: 31000, fol: 6239, views: 12000000, meta_spend: 4430, tt_spend: 1044, g_spend: 0, sc_spend: 0, tt_leads: 420, meta_leads: 650, conf: true },
-      { end: '2026-02-01', ea_d: 220, wish: 790, sv: 42000, users: 33500, fol: 7300, views: 22000000, meta_spend: 2000, tt_spend: 800, g_spend: 0, sc_spend: 0, tt_leads: 600, meta_leads: 900, conf: false },
-      // CONFIRMED Feb Wk2
-      { end: '2026-02-15', ea_d: 300, wish: 1000, sv: 60000, users: 37000, fol: 9000, views: 54915789, meta_spend: 3000, tt_spend: 0, g_spend: 0, sc_spend: 0, tt_leads: 3974, meta_leads: 4670, conf: true },
-      { end: '2026-02-22', ea_d: 350, wish: 1060, sv: 67000, users: 37000, fol: 11000, views: 65000000, meta_spend: 1800, tt_spend: 500, g_spend: 0, sc_spend: 0, tt_leads: 500, meta_leads: 700, conf: false },
-      { end: '2026-03-01', ea_d: 400, wish: 1100, sv: 71000, users: 37000, fol: 13000, views: 72000000, meta_spend: 1800, tt_spend: 500, g_spend: 0, sc_spend: 0, tt_leads: 550, meta_leads: 750, conf: false },
-      { end: '2026-03-08', ea_d: 440, wish: 1140, sv: 73500, users: 37000, fol: 15000, views: 77000000, meta_spend: 1800, tt_spend: 500, g_spend: 0, sc_spend: 0, tt_leads: 560, meta_leads: 760, conf: false },
-      { end: '2026-03-15', ea_d: 480, wish: 1180, sv: 75500, users: 37000, fol: 17000, views: 81000000, meta_spend: 1800, tt_spend: 500, g_spend: 0, sc_spend: 0, tt_leads: 570, meta_leads: 780, conf: false },
-      { end: '2026-03-22', ea_d: 520, wish: 1220, sv: 77500, users: 37000, fol: 19000, views: 85000000, meta_spend: 1800, tt_spend: 500, g_spend: 0, sc_spend: 0, tt_leads: 580, meta_leads: 790, conf: false },
-      { end: '2026-03-29', ea_d: 560, wish: 1260, sv: 79500, users: 37000, fol: 21000, views: 89000000, meta_spend: 1800, tt_spend: 500, g_spend: 0, sc_spend: 0, tt_leads: 590, meta_leads: 800, conf: false },
-      { end: '2026-04-05', ea_d: 600, wish: 1290, sv: 80800, users: 37000, fol: 22000, views: 93000000, meta_spend: 1800, tt_spend: 500, g_spend: 0, sc_spend: 0, tt_leads: 600, meta_leads: 820, conf: false },
-      { end: '2026-04-12', ea_d: 640, wish: 1330, sv: 81800, users: 37000, fol: 23000, views: 96000000, meta_spend: 1800, tt_spend: 500, g_spend: 0, sc_spend: 0, tt_leads: 610, meta_leads: 840, conf: false },
-      { end: '2026-04-19', ea_d: 680, wish: 1360, sv: 82400, users: 37000, fol: 24000, views: 98500000, meta_spend: 1800, tt_spend: 500, g_spend: 0, sc_spend: 0, tt_leads: 620, meta_leads: 860, conf: false },
-      // CONFIRMED Apr 26-30
-      { end: '2026-04-30', ea_d: 10, wish: 1400, sv: 82820, users: 37000, fol: 25000, views: 100000000, meta_spend: 0, tt_spend: 0, g_spend: 0, sc_spend: 0, tt_leads: 0, meta_leads: 0, conf: true },
-      { end: '2026-05-02', ea_d: 10, wish: 1400, sv: 82820, users: 37000, fol: 25000, views: 100000000, meta_spend: 0, tt_spend: 0, g_spend: 0, sc_spend: 0, tt_leads: 0, meta_leads: 0, conf: true },
+      { end:'2026-07-07',ea_d:0,wish:0,sv:0,users:0,fol:0,views:0,meta_spend:1347.35,tt_spend:0,g_spend:0,sc_spend:0,tt_leads:0,meta_leads:0,conf:true },
+      { end:'2026-07-14',ea_d:0,wish:0,sv:0,users:0,fol:0,views:0,meta_spend:1946.75,tt_spend:0,g_spend:0,sc_spend:0,tt_leads:0,meta_leads:0,conf:true },
+      { end:'2026-07-21',ea_d:0,wish:0,sv:0,users:0,fol:0,views:0,meta_spend:511.79,tt_spend:0,g_spend:0,sc_spend:0,tt_leads:0,meta_leads:0,conf:true },
+      { end:'2026-07-28',ea_d:0,wish:0,sv:0,users:0,fol:0,views:0,meta_spend:0,tt_spend:0,g_spend:0,sc_spend:0,tt_leads:0,meta_leads:0,conf:true },
+      { end:'2026-08-04',ea_d:0,wish:0,sv:0,users:0,fol:0,views:0,meta_spend:1937.59,tt_spend:0,g_spend:0,sc_spend:0,tt_leads:0,meta_leads:0,conf:true },
+      { end:'2026-08-11',ea_d:0,wish:0,sv:0,users:0,fol:0,views:0,meta_spend:49.19,tt_spend:0,g_spend:0,sc_spend:0,tt_leads:0,meta_leads:0,conf:true },
+      { end:'2026-08-18',ea_d:0,wish:0,sv:0,users:0,fol:0,views:0,meta_spend:192.31,tt_spend:0,g_spend:0,sc_spend:0,tt_leads:0,meta_leads:0,conf:true },
+      { end:'2026-08-25',ea_d:0,wish:0,sv:0,users:0,fol:0,views:0,meta_spend:589.28,tt_spend:0,g_spend:0,sc_spend:0,tt_leads:0,meta_leads:0,conf:true },
+      { end:'2026-09-01',ea_d:0,wish:0,sv:0,users:0,fol:0,views:0,meta_spend:69.70,tt_spend:0,g_spend:0,sc_spend:0,tt_leads:0,meta_leads:0,conf:true },
+      { end:'2026-09-08',ea_d:0,wish:0,sv:0,users:0,fol:0,views:0,meta_spend:0,tt_spend:0,g_spend:0,sc_spend:0,tt_leads:0,meta_leads:0,conf:true },
+      { end:'2026-09-13',ea_d:0,wish:0,sv:0,users:0,fol:0,views:0,meta_spend:0,tt_spend:0,g_spend:0,sc_spend:0,tt_leads:0,meta_leads:0,conf:true }
     ];
 
-    // Platform organic data (Feb Wk2 confirmed — current values need update)
+    // Organic metrics are not yet validated through the current connector.
     const ORG = {
-      tiktok: { fol: 8244, views_wk: 24329621, profile_visits: 187804, likes: 49224, comments: 207, shares: 1332, impressions: 43415233, clicks: 291350, cp_conv: 0.54, date: '2026-02-15', note: 'Feb Wk2 data ⚑' },
-      facebook: { fol: 1240, views_wk: 45200, reach: 3100, likes: 890, comments: 45, shares: 12, date: '2026-02-15', note: 'Feb Wk2 data ⚑' },
-      instagram: { fol: 645, views_wk: 1210800, profile_visits: 9599, likes: 142, comments: 11, shares: 7, saves: 6, pct_ads: 99.5, date: '2026-02-15', note: 'Feb Wk2 data ⚑' },
-      twitter: { fol: 127, impressions: 1525, profile_visits: 27, likes: 14, comments: 2, shares: 1, date: '2026-02-15', note: 'Feb Wk2 data ⚑' },
-      youtube: { subs: 273, trailers: [{ t: 'SAMLA Official Teaser', d: 'Nov 10, 2025' }, { t: 'SAMLA Closed Beta', d: 'Mar 26, 2026' }], note: 'Live via pipeline' },
-      discord: { members: 317, note: 'Needs update' },
+      tiktok:{fol:0,views_wk:0,profile_visits:0,likes:0,comments:0,shares:0,impressions:0,clicks:0,cp_conv:0,date:null,note:'N/A — not validated'},
+      facebook:{fol:0,views_wk:0,reach:0,likes:0,comments:0,shares:0,date:null,note:'N/A — Meta organic pending'},
+      instagram:{fol:0,views_wk:0,profile_visits:0,likes:0,comments:0,shares:0,saves:0,pct_ads:0,date:null,note:'N/A — Meta organic pending'},
+      twitter:{fol:0,impressions:0,profile_visits:0,likes:0,comments:0,shares:0,date:null,note:'N/A — not validated'},
+      youtube:{subs:0,trailers:[],note:'N/A — not validated'},
+      discord:{members:0,note:'N/A — not validated'}
     };
 
     // Paid platform totals
     const PAID_TOT = {
-      meta: { spend: 8451, leads_total: '17K+', impressions: '11.5M+', clicks: '207K+', best_cpc: 0.03, status: 'paused', reason: 'Budget constraints Apr 26' },
-      tiktok: { spend: 2088, leads_total: 3974, impressions: 43415233, clicks: 291350, cp_conv: 0.54, status: 'paused', reason: 'Budget constraints Apr 26' },
-      google: { spend: 1093, status: 'paused', reason: 'Privacy policy needs update' },
-      snapchat: { spend: 606, status: 'paused', reason: 'Low performance, high spend' },
+      meta:{spend:29716.79,leads_total:0,impressions:75203344,clicks:1123811,best_cpc:.03,status:'verified',reason:'Meta MCP · through Sep 13'},
+      tiktok:{spend:0,leads_total:0,impressions:0,clicks:0,cp_conv:0,status:'N/A',reason:'Not validated'},
+      google:{spend:0,status:'N/A',reason:'Not validated'},
+      snapchat:{spend:0,status:'N/A',reason:'Not validated'}
     };
 
     // ═════════════════════ STATE & HELPERS ══════════════════════════════════
-    let curPeriod = '7D', curG = 'weekly', cmpMode = false, cPage = 'overview';
+    let curPeriod = 'all', curG = 'weekly', cmpMode = false, cPage = 'overview';
     let cFrom = null, cTo = null;
-    const NOW = new Date('2026-05-02');
+    const NOW = new Date('2026-09-13');
     const charts = {};
 
     function getRange() {
@@ -4868,7 +4899,7 @@
       if (curPeriod === '7D') { d.setDate(d.getDate() - 7); return [d, NOW]; }
       if (curPeriod === '30D') { d.setDate(d.getDate() - 30); return [d, NOW]; }
       if (curPeriod === '90D') { d.setDate(d.getDate() - 90); return [d, NOW]; }
-      return [new Date('2025-11-01'), NOW];
+      return [new Date('2025-12-14'), NOW];
     }
     function fw() { 
       const [a, b] = getRange(); 
@@ -4937,54 +4968,22 @@
     function tbl(head, rows, foot = '') { return `<div class="overflow-x-auto"><table class="w-full text-[11.5px]"><thead><tr class="border-b border-zinc-800 text-[9.5px] text-zinc-500 uppercase tracking-wider">${head.map(h => `<th class="px-3 py-2.5 ${h.r ? 'text-right' : 'text-left'} font-medium">${h.t}</th>`).join('')}</tr></thead><tbody class="divide-y divide-zinc-800/50">${rows}</tbody>${foot ? `<tfoot>${foot}</tfoot>` : ''}</table></div>`; }
 
     // ═════════════════════ CHART BUILDERS ════════════════════════════════════
-    function getCurrentTotalFollowers() {
-      const d = typeof loadMO === 'function' ? loadMO() : {};
-      const org = window.SAMLA_ORGANIC || {};
-      const parseFol = (str) => {
-        if (!str) return 0;
-        if (typeof str === 'number') return str;
-        const num = parseFloat(str.toString().replace(/,/g, '').replace(/[kK]/g, 'e3').replace(/[mM]/g, 'e6'));
-        return isNaN(num) ? 0 : num;
-      };
-      let tt = parseFol(d['mo-tt-followers']) || org.tiktok?.followers || (typeof ORG !== 'undefined' && ORG.tiktok?.fol) || 0;
-      let ig = parseFol(d['mo-ig-followers']) || (typeof ORG !== 'undefined' && ORG.instagram?.fol) || 0;
-      let tw = parseFol(d['mo-tw-followers']) || org.twitter?.followers || (typeof ORG !== 'undefined' && ORG.twitter?.fol) || 0;
-      let yt = parseFol(d['mo-yt-subscribers']) || org.youtube?.subscribers || (typeof ORG !== 'undefined' && ORG.youtube?.subs) || 0;
-      let dc = parseFol(d['mo-dc-members']) || org.discord?.members || (typeof ORG !== 'undefined' && ORG.discord?.members) || 0;
-      let fb = parseFol(d['mo-fb-followers']) || (typeof ORG !== 'undefined' && ORG.facebook?.fol) || 0;
-      let st = parseFol(d['mo-st-followers']) || org.steam?.followers || 0; 
-      return tt + ig + tw + yt + dc + st + fb;
-    }
+    function getCurrentTotalFollowers() { return 0; }
 
     function getCurrentFacebookFollowers() {
-      const d = typeof loadMO === 'function' ? loadMO() : {};
-      return d['mo-fb-followers'] || fmt2(ORG.facebook.fol);
+      return 'N/A';
     }
 
     function getCurrentTotalViews() {
-      const d = typeof loadMO === 'function' ? loadMO() : {};
-      const parse = (s) => { if (!s) return 0; const n = parseFloat(s.toString().replace(/,/g,'').replace(/[kK]/g,'e3').replace(/[mM]/g,'e6')); return isNaN(n) ? 0 : n; };
-      const base = 100000000;
-      let tt = parse(d['mo-tt-views']) || 0;
-      let ig = parse(d['mo-ig-views']) || 0;
-      let fb = parse(d['mo-fb-views']) || 0;
-      return base + tt + ig + fb;
+      return 0;
     }
 
     function getCurrentSteamOnlyWishlists() {
-      const d = typeof loadMO === 'function' ? loadMO() : {};
-      const org = window.SAMLA_ORGANIC || {};
-      const parse = (s) => { if (!s) return 0; const n = parseFloat(s.toString().replace(/,/g,'').replace(/[kK]/g,'e3').replace(/[mM]/g,'e6')); return isNaN(n) ? 0 : n; };
-      return parse(d['mo-st-wishlists']) || org.steam?.est_wishlists || 0;
+      return 0;
     }
 
     function getCurrentGamingIntent() {
-      const d = typeof loadMO === 'function' ? loadMO() : {};
-      const org = window.SAMLA_ORGANIC || {};
-      const parse = (s) => { if (!s) return 0; const n = parseFloat(s.toString().replace(/,/g,'').replace(/[kK]/g,'e3').replace(/[mM]/g,'e6')); return isNaN(n) ? 0 : n; };
-      let st = parse(d['mo-st-wishlists']) || org.steam?.est_wishlists || 0;
-      let epic = parse(d['mo-epic-wishlists']) || org.epic?.wishlists || 0;
-      return st + epic;
+      return 0;
     }
 
     function getCurrentSteamWishlists() { return getCurrentGamingIntent(); }
@@ -4997,7 +4996,7 @@
       wishlist: { label: 'Gaming wishlist count (all stores)', totalFn: f => getCurrentSteamWishlists() || last(f).wish || 0, seriesFn: f => f.map(w => w.wish), fmtVal: v => fmt(v), isCur: false },
       engagement: { label: 'Aggregate engagement (followers + EA)', totalFn: f => getCurrentTotalFollowers() + f.reduce((s, w) => s + w.ea_d * 7, 0), seriesFn: f => f.map(w => w.fol + w.ea_d * 7), fmtVal: v => fmt(v), isCur: false },
     };
-    let heroCurMetric = 'reach';
+    let heroCurMetric = 'spend';
 
     function setHeroMetric(m, btn) {
       heroCurMetric = m;
@@ -5094,7 +5093,7 @@
       const channels = [
         { id: 'meta', label: 'Facebook & Instagram', sub: 'Meta Ads · paid', iconHtml: '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 3.656 11.127 8.812 13.223v-9.35h-3.393v-3.873h3.393v-2.951c0-3.348 2.043-5.178 5.032-5.178 1.432 0 2.931.256 2.931.256v3.22h-1.65c-1.659 0-2.164 1.03-2.164 2.086v2.567h3.63l-.58 3.873h-3.05v9.35c5.156-2.096 8.812-7.233 8.812-13.223z" /></svg>', iconBg: '#1877f2', value: cur(metaSpend), delta: cmpMode ? delta(metaSpend, metaSpendPrev) : null, series: f.map(w => w.meta_spend), color: MB, fill: 'rgba(96,165,250,.18)' },
         { id: 'tiktok', label: 'TikTok Ads', sub: 'Paid · creator-led', iconHtml: '<svg width="18" height="18" viewBox="0 0 448 512" fill="currentColor" stroke="none"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z" /></svg>', iconBg: '#000', value: cur(tiktokSpend), delta: cmpMode ? delta(tiktokSpend, tiktokSpendPrev) : null, series: f.map(w => w.tt_spend), color: TT, fill: 'rgba(167,139,250,.18)' },
-        { id: 'facebook_org', label: 'Facebook Organic', sub: 'Organic · Reach', iconHtml: '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 3.656 11.127 8.812 13.223v-9.35h-3.393v-3.873h3.393v-2.951c0-3.348 2.043-5.178 5.032-5.178 1.432 0 2.931.256 2.931.256v3.22h-1.65c-1.659 0-2.164 1.03-2.164 2.086v2.567h3.63l-.58 3.873h-3.05v9.35c5.156-2.096 8.812-7.233 8.812-13.223z" /></svg>', iconBg: '#1e40af', value: getCurrentFacebookFollowers(), delta: null, series: [1100, 1150, 1180, 1200, 1220, 1240], color: MB, fill: 'rgba(96,165,250,.12)' },
+        { id: 'facebook_org', label: 'Facebook Organic', sub: 'Organic · pending validation', iconHtml: '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 3.656 11.127 8.812 13.223v-9.35h-3.393v-3.873h3.393v-2.951c0-3.348 2.043-5.178 5.032-5.178 1.432 0 2.931.256 2.931.256v3.22h-1.65c-1.659 0-2.164 1.03-2.164 2.086v2.567h3.63l-.58 3.873h-3.05v9.35c5.156-2.096 8.812-7.233 8.812-13.223z" /></svg>', iconBg: '#1e40af', value: getCurrentFacebookFollowers(), delta: null, series: f.map(() => 0), color: MB, fill: 'rgba(96,165,250,.12)' },
         { id: 'steam', label: 'Steam Wishlist', sub: 'Pre-launch interest', iconHtml: '<svg width="18" height="18" viewBox="0 0 496 512" fill="currentColor" stroke="none"><path d="M496 256c0 137-111.2 248-248.4 248-113.8 0-209.6-76.3-239-180.4l95.2 39.3c6.4 32.1 34.9 56.4 68.9 56.4 39.2 0 71.9-32.4 70.2-73.5l84.5-60.2c52.1 1.3 95.8-40.9 95.8-93.5 0-51.6-42-93.5-93.7-93.5s-93.7 42-93.7 93.5v1.2L176.6 279c-15.5-.9-30.7-1.4-46.6-1.4-56.9 0-103 46.1-103 103 0 56.9 46.1 103 103 103 36.9 0 69.3-19.4 87.7-48.4l-75.7-31.3c-2.4 17.1-17.1 30-34.6 30-19.3 0-35-15.7-35-35s15.7-35 35-35c17.5 0 32.2 12.9 34.6 30l75.7 31.3C275.1 482.6 362.4 512 458.4 512c19.3 0 35-15.7 35-35s-15.7-35-35-35c-20.7 0-37.5 16.8-37.5 37.5 0 3.2.4 6.3 1.1 9.4l-79.6-32.9c-16.7-12.7-37.7-20.1-60.3-20.1-23.7 0-45.5 8.2-62.8 21.8L121.2 277.6c3.4-10.4 5.3-21.5 5.3-33.1 0-54.8-44.4-99.2-99.2-99.2C12.5 145.3 0 157.8 0 173.3s12.5 28 28 28c30.2 0 55.4-23.1 58.7-52.8l79.2 56.5c-1.3 7.6-2 15.3-2 23.3 0 69.1 56 125.1 125.1 125.1 69.1 0 125.1-56 125.1-125.1 0-69.1-56-125.1-125.1-125.1-37.6 0-71.1 16.9-94 43.4L88.7 88.5C124.9 34.6 186.9 0 256 0c132.5 0 240 107.5 240 240 0 5.4-.2 10.7-.5 16z" /></svg>', iconBg: '#0e7490', value: fmt(getCurrentSteamOnlyWishlists()), delta: cmpMode ? delta(l.wish, pl.wish) : null, series: f.map(w => w.wish), color: G, fill: 'rgba(0,230,118,.18)' },
       ];
 
@@ -5215,6 +5214,48 @@
       });
     }
 
+    function buildPaidValidated() {
+      buildPaidAll();
+      const d = window.META_VERIFIED_SNAPSHOT?.brands?.samla;
+      if (!d) return;
+      const a = d.all_time;
+      document.getElementById('kpi-paid').innerHTML = kpis([
+        { l:'Meta Spend',v:'$'+a.spend.toLocaleString('en-US',{minimumFractionDigits:2}),s:'All-time verified',c:'b' },
+        { l:'Impressions',v:fmt(a.impressions),s:'All-time verified',c:'b' },
+        { l:'Clicks',v:fmt(a.clicks),s:'All-time verified',c:'g' },
+        { l:'Link Clicks',v:fmt(a.link_clicks),s:'All-time verified',c:'g' },
+        { l:'Landing Views',v:fmt(a.landing_page_views),s:'All-time verified',c:'a' },
+        { l:'Other Platforms',v:'N/A',s:'Not validated yet',c:'t' }
+      ]);
+      const set = (id,value) => { const el=document.getElementById(id); if(el) el.textContent=value; };
+      set('paid-meta-spend','$'+a.spend.toLocaleString('en-US',{minimumFractionDigits:2}));
+      set('paid-meta-leads','N/A'); set('paid-meta-imp',a.impressions.toLocaleString());
+      set('paid-meta-clk',a.clicks.toLocaleString()); set('paid-meta-cpc','$0.03');
+      set('paid-meta-status','Verified · '+d.through);
+      ['tt','gg','sc'].forEach(p => ['spend','leads','imp','clk','cpc','status'].forEach(k => set('paid-'+p+'-'+k,'N/A')));
+    }
+
+    function buildUnavailablePage(pageId) {
+      const pg = document.getElementById('pg-'+pageId);
+      if (!pg) return;
+      if (!pg.querySelector('.validated-na-banner')) {
+        const banner=document.createElement('div');
+        banner.className='validated-na-banner bg-amber-950/20 border border-amber-900/30 rounded-xl px-4 py-3 text-[11px] text-amber-300 mb-4';
+        banner.textContent='N/A — this source has not been validated yet. The original section and filters are preserved.';
+        pg.prepend(banner);
+      }
+      const selectors='.font-extrabold, .font-bold.text-zinc-100, td.text-right, .cur-static';
+      pg.querySelectorAll(selectors).forEach(el => {
+        if (el.closest('.validated-na-banner') || el.closest('button')) return;
+        const t=(el.textContent||'').trim();
+        if (/[$€£₺%]|\d/.test(t)) el.textContent='N/A';
+      });
+      pg.querySelectorAll('canvas').forEach(c => {
+        const ctx=c.getContext?.('2d');
+        if (ctx) ctx.clearRect(0,0,c.width,c.height);
+      });
+    }
+
     function buildMeta() {
       const f = fw();
       document.getElementById('kpi-meta').innerHTML = kpis([
@@ -5228,6 +5269,80 @@
       const labs = f.map(w => wlbl(w.end));
       mkChart('c-meta-spend', { type: 'bar', data: { labels: labs, datasets: [{ label: 'Meta Spend ($)', data: f.map(w => w.meta_spend), backgroundColor: f.map(w => w.conf ? MB : MB + '88'), borderRadius: 4 }] }, options: { ...BASE, scales: { x: { ticks: TICK, grid: GRID, border: { color: 'rgba(255,255,255,.04)' } }, y: { ticks: { ...TICK, callback: v => cur(v) }, grid: GRID, border: { color: 'transparent' } } } } });
       mkChart('c-meta-leads', { type: 'line', data: { labels: labs, datasets: [{ label: 'Leads', data: f.map(w => w.meta_leads), borderColor: MB, backgroundColor: 'rgba(96,165,250,0.08)', tension: .4, fill: true, pointRadius: f.map(w => w.conf ? 5 : 2), pointBackgroundColor: f.map(w => w.conf ? MB : '#52525b') }] }, options: { ...BASE } });
+    }
+
+    function buildMetaLive() {
+      renderMetaLive('samla');
+    }
+
+    function renderMetaLive(brand) {
+      const snapshot = window.META_VERIFIED_SNAPSHOT;
+      const root = document.getElementById('meta-live-root');
+      if (!root) return;
+      if (!snapshot) {
+        root.innerHTML = '<div class="rounded-xl border border-red-500/25 bg-red-500/5 p-5 text-sm text-red-300">Verified Meta snapshot is unavailable.</div>';
+        return;
+      }
+      const d = snapshot.brands[brand];
+      const usd = n => n == null ? '—' : '$' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      const num = n => n == null ? '—' : Number(n).toLocaleString('en-US');
+      const compact = n => n == null ? '—' : fmt(Number(n), 1);
+      const tab = (key, label) => `<button onclick="renderMetaLive('${key}')" class="px-4 py-2 rounded-lg text-[11px] font-bold border ${brand === key ? 'bg-brand/10 text-brand border-brand/30' : 'bg-zinc-900 text-zinc-500 border-zinc-800 hover:text-zinc-200'}">${label}</button>`;
+
+      const header = `
+        <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
+          <div>
+            <div class="flex items-center gap-2"><h2 class="text-[17px] font-extrabold text-zinc-100">Verified Meta Performance</h2><span class="text-[9px] font-bold px-2 py-1 rounded-full border ${d.status === 'connected' ? 'bg-brand/10 text-brand border-brand/25' : 'bg-amber-500/10 text-amber-300 border-amber-500/25'}">${d.status === 'connected' ? 'CONNECTED' : 'LIMITED ACCESS'}</span></div>
+            <div class="text-[11px] text-zinc-500 mt-1">${snapshot.source} · Refreshed ${snapshot.refreshed_at.slice(0, 10)} · Currency USD</div>
+          </div>
+          <div class="flex gap-2">${tab('samla', 'SAMLA')}${tab('jackaroo', 'Jackaroo Strike')}</div>
+        </div>`;
+
+      if (brand === 'jackaroo') {
+        root.innerHTML = header + `
+          <div class="rounded-xl border border-amber-500/25 bg-amber-500/5 p-5 mb-4">
+            <div class="text-[13px] font-bold text-amber-300 mb-1">Jackaroo scope: ACTIVE ad only</div>
+            <div class="text-[12px] text-zinc-400">${d.message}</div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-4 mb-4">
+            <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5"><div class="text-[10px] uppercase tracking-widest text-zinc-500 mb-3">Reporting account</div><div class="text-[15px] font-bold text-zinc-100">${d.history_account_id}</div><div class="text-[11px] text-amber-300 mt-2">ACTIVE ad filter queued · live reporting unavailable</div></div>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5"><div class="text-[10px] uppercase tracking-widest text-zinc-500 mb-3">Reporting rule</div><div class="text-[22px] font-extrabold text-brand">ACTIVE ONLY</div><div class="text-[11px] text-zinc-500 mt-2">Paused and archived ads will stay excluded.</div></div>
+          </div>
+          <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5"><div class="text-[12px] font-bold mb-3">Data status</div><ul class="space-y-2 text-[11px] text-zinc-400">${d.notes.map(n => `<li class="flex gap-2"><span class="text-amber-300">•</span><span>${n}</span></li>`).join('')}</ul></div>`;
+        return;
+      }
+
+      const a = d.all_time;
+      const y = d.ytd;
+      const qRows = d.quarters.map((q, i) => {
+        const prev = d.quarters[i - 1];
+        const delta = prev ? ((q.spend / prev.spend - 1) * 100) : null;
+        return `<tr class="border-t border-zinc-800"><td class="px-3 py-2.5 font-bold text-zinc-100">${q.quarter}${q.partial ? ' <span class="text-[8px] text-amber-300">PARTIAL</span>' : ''}</td><td class="px-3 py-2.5 text-zinc-500">${q.period}</td><td class="px-3 py-2.5 text-right text-brand font-semibold">${usd(q.spend)}</td><td class="px-3 py-2.5 text-right ${delta == null ? 'text-zinc-600' : delta >= 0 ? 'text-brand' : 'text-red-400'}">${delta == null ? '—' : (delta >= 0 ? '+' : '') + delta.toFixed(1) + '%'}</td><td class="px-3 py-2.5 text-right">${compact(q.impressions)}</td><td class="px-3 py-2.5 text-right">${compact(q.reach)}</td><td class="px-3 py-2.5 text-right">${compact(q.clicks)}</td><td class="px-3 py-2.5 text-right">${compact(q.landing_page_views)}</td><td class="px-3 py-2.5 text-right">${q.ctr.toFixed(2)}%</td><td class="px-3 py-2.5 text-right">${usd(q.cpc)}</td></tr>`;
+      }).join('');
+      const weekRows = d.q3_weeks.map(w => `<tr class="border-t border-zinc-800"><td class="px-3 py-2 whitespace-nowrap font-medium text-zinc-200">${w.period}</td><td class="px-3 py-2 text-right text-brand">${usd(w.spend)}</td><td class="px-3 py-2 text-right">${num(w.impressions)}</td><td class="px-3 py-2 text-right">${num(w.reach)}</td><td class="px-3 py-2 text-right">${num(w.clicks)}</td><td class="px-3 py-2 text-right">${num(w.link_clicks)}</td><td class="px-3 py-2 text-right">${num(w.landing_page_views)}</td><td class="px-3 py-2 text-right">${w.ctr == null ? '—' : w.ctr.toFixed(2) + '%'}</td><td class="px-3 py-2 text-right">${usd(w.cpc)}</td></tr>`).join('');
+      const adRows = d.top_ads.map((ad, i) => `<tr class="border-t border-zinc-800"><td class="px-3 py-2 text-zinc-600">${i + 1}</td><td class="px-3 py-2 font-medium text-zinc-200 min-w-[240px]">${ad.name}</td><td class="px-3 py-2 text-right text-brand">${usd(ad.spend)}</td><td class="px-3 py-2 text-right">${num(ad.impressions)}</td><td class="px-3 py-2 text-right">${num(ad.clicks)}</td><td class="px-3 py-2 text-right">${num(ad.link_clicks)}</td><td class="px-3 py-2 text-right">${num(ad.landing_page_views)}</td><td class="px-3 py-2 text-right">${ad.ctr.toFixed(2)}%</td><td class="px-3 py-2 text-right">${usd(ad.cpc)}</td></tr>`).join('');
+
+      root.innerHTML = header + `
+        <div class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-8 gap-3 mb-4">
+          ${[
+            ['All-time spend', usd(a.spend), 'Since ' + d.history_start], ['Impressions', compact(a.impressions), num(a.impressions)], ['Clicks', compact(a.clicks), num(a.clicks)], ['Link clicks', compact(a.link_clicks), num(a.link_clicks)],
+            ['Landing views', compact(a.landing_page_views), num(a.landing_page_views)], ['Campaigns', num(a.campaigns), '24 paused · 3 active'], ['Ads', num(a.ads), 'Complete catalog'], ['YTD CTR', y.ctr.toFixed(2) + '%', 'CPC ' + usd(y.cpc)]
+          ].map((k, i) => `<div class="bg-zinc-900 border ${i === 0 ? 'border-brand/25' : 'border-zinc-800'} rounded-xl p-3"><div class="text-[9px] uppercase tracking-widest text-zinc-500">${k[0]}</div><div class="text-[19px] font-extrabold ${i === 0 ? 'text-brand' : 'text-zinc-100'} mt-1">${k[1]}</div><div class="text-[9px] text-zinc-600 mt-1">${k[2]}</div></div>`).join('')}
+        </div>
+        <div class="grid lg:grid-cols-2 gap-4 mb-4">
+          <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5"><div class="text-[12.5px] font-semibold">Quarter-to-quarter spend</div><div class="text-[10px] text-zinc-500 mb-3">Q3 partial through Sep 13 · USD</div><div class="relative h-56"><canvas id="c-meta-live-quarter"></canvas></div></div>
+          <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5"><div class="text-[12.5px] font-semibold">Q3 weekly delivery</div><div class="text-[10px] text-zinc-500 mb-3">Spend and impressions · 7-day buckets from Jul 1</div><div class="relative h-56"><canvas id="c-meta-live-week"></canvas></div></div>
+        </div>
+        <div class="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden mb-4"><div class="p-4"><div class="text-[12.5px] font-semibold">Quarter comparison</div><div class="text-[10px] text-zinc-500">Reach is unique within each quarter and is not added across quarters.</div></div><div class="overflow-x-auto"><table class="w-full text-[10px]"><thead class="bg-zinc-800/50 text-zinc-500"><tr><th class="px-3 py-2 text-left">Quarter</th><th class="px-3 py-2 text-left">Period</th><th class="px-3 py-2 text-right">Spend</th><th class="px-3 py-2 text-right">QoQ</th><th class="px-3 py-2 text-right">Impressions</th><th class="px-3 py-2 text-right">Reach</th><th class="px-3 py-2 text-right">Clicks</th><th class="px-3 py-2 text-right">LPV</th><th class="px-3 py-2 text-right">CTR</th><th class="px-3 py-2 text-right">CPC</th></tr></thead><tbody>${qRows}</tbody></table></div></div>
+        <div class="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden mb-4"><div class="p-4"><div class="text-[12.5px] font-semibold">Q3 week-by-week</div><div class="text-[10px] text-zinc-500">Exact verified values; blank source metrics remain “—”.</div></div><div class="overflow-x-auto max-h-[360px]"><table class="w-full text-[10px]"><thead class="sticky top-0 bg-zinc-800 text-zinc-500"><tr><th class="px-3 py-2 text-left">Week</th><th class="px-3 py-2 text-right">Spend</th><th class="px-3 py-2 text-right">Impressions</th><th class="px-3 py-2 text-right">Reach</th><th class="px-3 py-2 text-right">Clicks</th><th class="px-3 py-2 text-right">Link clicks</th><th class="px-3 py-2 text-right">LPV</th><th class="px-3 py-2 text-right">CTR</th><th class="px-3 py-2 text-right">CPC</th></tr></thead><tbody>${weekRows}</tbody></table></div></div>
+        <div class="grid lg:grid-cols-[1fr_2fr] gap-4 mb-4">
+          <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5"><div class="text-[12.5px] font-semibold mb-3">Website events · last 28 days</div>${d.website_events_28d.map(e => `<div class="flex items-center justify-between border-t border-zinc-800 py-3"><div><div class="text-[11px] font-semibold">${e.dataset}</div><div class="text-[9px] text-zinc-500">${e.event}</div></div><div class="text-2xl font-extrabold text-brand">${num(e.total)}</div></div>`).join('')}</div>
+          <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-5"><div class="text-[12.5px] font-semibold mb-3">Source notes</div><ul class="space-y-3 text-[11px] text-zinc-400">${d.notes.map(n => `<li class="flex gap-2"><span class="text-brand">•</span><span>${n}</span></li>`).join('')}</ul></div>
+        </div>
+        <div class="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden"><div class="p-4"><div class="text-[12.5px] font-semibold">Top 10 ads by spend</div><div class="text-[10px] text-zinc-500">Ranked from 87 ads in the complete account catalog.</div></div><div class="overflow-x-auto"><table class="w-full text-[10px]"><thead class="bg-zinc-800/50 text-zinc-500"><tr><th class="px-3 py-2 text-left">#</th><th class="px-3 py-2 text-left">Ad</th><th class="px-3 py-2 text-right">Spend</th><th class="px-3 py-2 text-right">Impressions</th><th class="px-3 py-2 text-right">Clicks</th><th class="px-3 py-2 text-right">Link clicks</th><th class="px-3 py-2 text-right">LPV</th><th class="px-3 py-2 text-right">CTR</th><th class="px-3 py-2 text-right">CPC</th></tr></thead><tbody>${adRows}</tbody></table></div></div>`;
+
+      mkChart('c-meta-live-quarter', { type: 'bar', data: { labels: d.quarters.map(q => q.quarter + (q.partial ? '*' : '')), datasets: [{ label: 'Spend (USD)', data: d.quarters.map(q => q.spend), backgroundColor: ['#3f3f46', '#22d3ee', '#00E676'], borderRadius: 5 }] }, options: { ...BASE, plugins: { legend: { display: false } }, scales: { x: { ticks: TICK, grid: GRID }, y: { ticks: { ...TICK, callback: v => '$' + Number(v).toLocaleString() }, grid: GRID } } } });
+      mkChart('c-meta-live-week', { type: 'bar', data: { labels: d.q3_weeks.map(w => w.period), datasets: [{ type: 'bar', label: 'Spend', data: d.q3_weeks.map(w => w.spend), yAxisID: 'y', backgroundColor: 'rgba(0,230,118,.72)', borderRadius: 3 }, { type: 'line', label: 'Impressions', data: d.q3_weeks.map(w => w.impressions), yAxisID: 'y1', borderColor: '#22d3ee', pointRadius: 2, tension: .35 }] }, options: { ...BASE, plugins: { legend: { display: true, labels: { color: '#71717a', boxWidth: 10, font: { size: 9 } } } }, scales: { x: { ticks: { ...TICK, maxRotation: 45, minRotation: 45 }, grid: GRID }, y: { position: 'left', ticks: { ...TICK, callback: v => '$' + v }, grid: GRID }, y1: { position: 'right', ticks: { ...TICK, callback: v => fmt(v, 0) }, grid: { display: false } } } } });
     }
 
     function buildTTpaid() {
@@ -5613,9 +5728,12 @@
 
     // ═══════════════════ PAGE BUILDERS DISPATCH ═══════════════════════════
     const BUILD = {
-      overview: buildOverview, paid: buildPaidAll, meta: buildMeta, tiktok_paid: buildTTpaid,
-      organic: buildOrgAll, steam: buildSteam, website: buildWebsite, portal: buildPortal,
-      keys: buildKeys, weekly: buildWeekly, monthly: buildMonthly,
+      overview: buildOverview, paid: buildPaidValidated, meta: buildMetaLive, meta_live: buildMetaLive,
+      tiktok_paid:()=>buildUnavailablePage('tiktok_paid'), google:()=>buildUnavailablePage('google'), snapchat:()=>buildUnavailablePage('snapchat'),
+      organic:()=>buildUnavailablePage('organic'), facebook_org:()=>buildUnavailablePage('facebook_org'), tiktok_org:()=>buildUnavailablePage('tiktok_org'),
+      instagram:()=>buildUnavailablePage('instagram'), twitter:()=>buildUnavailablePage('twitter'), youtube:()=>buildUnavailablePage('youtube'), discord:()=>buildUnavailablePage('discord'),
+      steam:()=>buildUnavailablePage('steam'), website:()=>buildUnavailablePage('website'), portal:()=>buildUnavailablePage('portal'),
+      keys:()=>buildUnavailablePage('keys'), weekly:()=>buildUnavailablePage('weekly'), monthly:()=>buildUnavailablePage('monthly'), quality:()=>buildUnavailablePage('quality'),
       integration: updateIntegrationStatus,
     };
 
@@ -5710,7 +5828,7 @@
       const cpb = document.getElementById('cl-progress-bar');
       if (cpb && cls.length) cpb.style.width = Math.round(done / cls.length * 100) + '%';
     }
-    const TITLES = { overview: 'Dashboard', paid: 'Paid Ads — All Platforms', meta: 'Facebook & Instagram Ads', tiktok_paid: 'TikTok Ads — Paid', google: 'Google Ads', snapchat: 'Snapchat Ads', organic: 'Organic — All Channels', facebook_org: 'Facebook Organic', tiktok_org: 'TikTok — Organic', instagram: 'Instagram — Organic', twitter: 'X / Twitter — Organic', youtube: 'YouTube — Organic', discord: 'Discord — Organic', steam: 'Steam', website: 'Website / GA4', portal: 'Player Portal', keys: 'Key Management', weekly: 'Weekly Report', monthly: 'Monthly Report', quality: 'Data Quality', integration: 'Integration — Live Data Setup', settings: 'API Settings — Live Data' };
+    const TITLES = { overview: 'Dashboard', paid: 'Paid Ads — All Platforms', meta: 'Facebook & Instagram Ads', meta_live: 'Verified Live Meta — SAMLA & Jackaroo', tiktok_paid: 'TikTok Ads — Paid', google: 'Google Ads', snapchat: 'Snapchat Ads', organic: 'Organic — All Channels', facebook_org: 'Facebook Organic', tiktok_org: 'TikTok — Organic', instagram: 'Instagram — Organic', twitter: 'X / Twitter — Organic', youtube: 'YouTube — Organic', discord: 'Discord — Organic', steam: 'Steam', website: 'Website / GA4', portal: 'Player Portal', keys: 'Key Management', weekly: 'Weekly Report', monthly: 'Monthly Report', quality: 'Data Quality', integration: 'Integration — Live Data Setup', settings: 'API Settings — Live Data' };
     const inited = {};
 
     function nav(p, el) {
@@ -6602,17 +6720,10 @@
 
     // ═══════════════════════ INIT ════════════════════════════════════════════
     setTimeout(() => {
-      buildOverview(); buildWeekly();
+      buildOverview(); buildUnavailablePage('weekly');
       inited.overview = true; inited.weekly = true;
-      // Load and apply all manual overrides (from localStorage)
-      loadMOForm();
-      applyManualOrganic();
-      // Apply backend organic data (from live_organic_data.js) — overrides manual for automated platforms
-      applyOrganicData();
-      updateGMLive();
-      // Auto-fetch live API data if keys exist
+      // Validated-only mode: ignore legacy localStorage/manual and stale generated snapshots.
       const k = loadKeys();
-      setTimeout(runLiveFetch, 800);
       updateConnStatusGrid();
 
       // Initialize subtle background VFX
