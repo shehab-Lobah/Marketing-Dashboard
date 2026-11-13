@@ -1,13 +1,13 @@
 window.SAMLA_ORGANIC = {
   "_meta": {
-    "updated_at": 1794517983.9434917,
-    "timestamp": "2026-11-12 21:13:03 UTC",
+    "updated_at": 1794536071.329034,
+    "timestamp": "2026-11-13 02:14:31 UTC",
     "version": "3.0"
   },
   "discord": {
     "status": "success",
     "members": 1318,
-    "online": 336,
+    "online": 223,
     "name": "SAMLA",
     "invite": "samla"
   },
@@ -26,7 +26,7 @@ window.SAMLA_ORGANIC = {
     "display_name": "SAMLA",
     "verified": false,
     "bio": "\u0644\u0639\u0628\u0629 \u0635\u0645\u0644\u0629 | Hero Shooter \n\u062c\u0627\u0621 \u0648\u0642\u062a \u0627\u0644\u0635\u0645\u0644\u0629 \ud83d\udd25\n\u0627\u0646\u0636\u0645 \u0644\u0646\u0627 \u0648\u0633\u062c\u0651\u0644 \u0641\u064a \u0627\u0644\u0640 Wishlist \u0627\u0644\u0622\u0646 \ud83d\udc47\ud83c\udffc",
-    "profile_pic": "https://p16-common-sign.tiktokcdn-us.com/tos-alisg-avt-0068/2bf3c5387b6984b356eda5a2c35a9f12~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=9640&refresh_token=a4b51883&x-expires=1794690000&x-signature=%2BcHsvtn7mYMXxthctR7VZNkBsw8%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast8",
+    "profile_pic": "https://p16-common-sign.tiktokcdn-us.com/tos-alisg-avt-0068/2bf3c5387b6984b356eda5a2c35a9f12~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=9640&refresh_token=1df7a6af&x-expires=1794708000&x-signature=8sVPYAK6QFitygG8C4KvFHx6qUA%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast5",
     "followers": 20200,
     "following": 0,
     "likes": 246400,
@@ -35,8 +35,11 @@ window.SAMLA_ORGANIC = {
     "profile_url": "https://www.tiktok.com/@samlagame"
   },
   "steam": {
-    "status": "error",
-    "error": "HTTPSConnectionPool(host='steamspy.com', port=443): Read timed out. (read timeout=10)"
+    "status": "success",
+    "followers": 0,
+    "owners": "0 .. 20,000",
+    "name": "",
+    "average_2weeks": 0
   }
 };
-console.info('[Samla] Organic data loaded — 2026-11-12 21:13:03 UTC');
+console.info('[Samla] Organic data loaded — 2026-11-13 02:14:31 UTC');
